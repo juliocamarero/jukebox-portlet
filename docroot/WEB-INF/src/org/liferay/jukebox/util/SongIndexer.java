@@ -35,6 +35,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Locale;
 
+import javax.portlet.PortletRequest;
+import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
 
 import org.liferay.jukebox.model.Album;
@@ -151,7 +153,8 @@ public class SongIndexer extends BaseIndexer {
 	@Override
 	protected Summary doGetSummary(
 		Document document, Locale locale, String snippet,
-		PortletURL portletURL) {
+		PortletURL portletURL, PortletRequest portletRequest,
+		PortletResponse portletResponse) {
 
 		Summary summary = createSummary(document);
 
