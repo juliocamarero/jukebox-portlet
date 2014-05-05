@@ -29,7 +29,7 @@ import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletURLFactoryUtil;
-import com.liferay.portlet.trash.DuplicateEntryException;
+import com.liferay.portlet.trash.RestoreEntryException;
 import com.liferay.portlet.trash.TrashEntryConstants;
 import com.liferay.portlet.trash.model.TrashEntry;
 
@@ -75,13 +75,13 @@ public class SongTrashHandler extends JukeBoxBaseTrashHandler {
 			originalName);
 
 		if (duplicateSong != null) {
-			DuplicateEntryException dee = new DuplicateEntryException();
+			RestoreEntryException ree = new RestoreEntryException();
 
-			dee.setDuplicateEntryId(duplicateSong.getSongId());
-			dee.setOldName(duplicateSong.getName());
-			dee.setTrashEntryId(trashEntry.getEntryId());
+			ree.setDuplicateEntryId(duplicateSong.getSongId());
+			ree.setOldName(duplicateSong.getName());
+			ree.setTrashEntryId(trashEntry.getEntryId());
 
-			throw dee;
+			throw ree;
 		}
 	}
 
