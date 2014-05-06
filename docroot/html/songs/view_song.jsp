@@ -45,13 +45,18 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 </c:if>
 
 <c:if test="<%= SongPermission.contains(permissionChecker, song.getSongId(), ActionKeys.UPDATE) %>">
+	<portlet:renderURL var="redirectURL">
+		<portlet:param name="jspPage" value="/html/songs/view_song.jsp" />
+		<portlet:param name="songId" value="<%= String.valueOf(song.getSongId()) %>" />
+		<portlet:param name="redirect" value="<%= redirect %>" />
+	</portlet:renderURL>
 
 	<aui:nav-bar>
 		<aui:nav>
 			<portlet:renderURL var="editSongURL">
 				<portlet:param name="jspPage" value="/html/songs/edit_song.jsp" />
 				<portlet:param name="songId" value="<%= String.valueOf(song.getSongId()) %>" />
-				<portlet:param name="redirect" value="<%= PortalUtil.getCurrentURL(liferayPortletRequest) %>" />
+				<portlet:param name="redirect" value="<%= redirectURL %>" />
 			</portlet:renderURL>
 
 			<aui:nav-item href="<%= editSongURL %>" iconCssClass="icon-pencil" label="edit" />

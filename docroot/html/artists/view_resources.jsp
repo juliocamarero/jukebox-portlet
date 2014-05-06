@@ -50,29 +50,33 @@ else {
 			for (Artist artist : artists) {
 			%>
 
-			<li class="artist">
-				<portlet:renderURL var="viewArtistURL">
-					<portlet:param name="jspPage" value="/html/artists/view_artist.jsp" />
-					<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
-					<portlet:param name="redirect" value="<%= PortalUtil.getCurrentURL(liferayPortletRequest) %>" />
+				<portlet:renderURL var="redirectURL">
+					<portlet:param name="jspPage" value="/html/artists/view.jsp" />
 				</portlet:renderURL>
 
-				<aui:a href="<%= viewArtistURL %>">
-					<img alt="" class="artist-image img-circle" src="<%= artist.getImageURL(themeDisplay) %>" />
-
-					<%= artist.getName() %>
-				</aui:a>
-
-				<c:if test="<%= ArtistPermission.contains(permissionChecker, artist.getArtistId(), ActionKeys.UPDATE) %>">
-					<portlet:renderURL var="editArtistURL">
-						<portlet:param name="jspPage" value="/html/artists/edit_artist.jsp" />
+				<li class="artist">
+					<portlet:renderURL var="viewArtistURL">
+						<portlet:param name="jspPage" value="/html/artists/view_artist.jsp" />
 						<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
-						<portlet:param name="redirect" value="<%= PortalUtil.getCurrentURL(liferayPortletRequest) %>" />
+						<portlet:param name="redirect" value="<%= redirectURL %>" />
 					</portlet:renderURL>
 
-					<liferay-ui:icon cssClass="artist-small-link" image="../aui/pencil" message="edit" url="<%= editArtistURL %>" />
-				</c:if>
-			</li>
+					<aui:a href="<%= viewArtistURL %>">
+						<img alt="" class="artist-image img-circle" src="<%= artist.getImageURL(themeDisplay) %>" />
+
+						<%= artist.getName() %>
+					</aui:a>
+
+					<c:if test="<%= ArtistPermission.contains(permissionChecker, artist.getArtistId(), ActionKeys.UPDATE) %>">
+						<portlet:renderURL var="editArtistURL">
+							<portlet:param name="jspPage" value="/html/artists/edit_artist.jsp" />
+							<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
+							<portlet:param name="redirect" value="<%= redirectURL %>" />
+						</portlet:renderURL>
+
+						<liferay-ui:icon cssClass="artist-small-link" image="../aui/pencil" message="edit" url="<%= editArtistURL %>" />
+					</c:if>
+				</li>
 
 			<%
 			}
