@@ -163,6 +163,7 @@ public class SongServiceWrapper implements SongService,
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */
+	@Deprecated
 	public SongService getWrappedSongService() {
 		return _songService;
 	}
@@ -170,6 +171,7 @@ public class SongServiceWrapper implements SongService,
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
 	 */
+	@Deprecated
 	public void setWrappedSongService(SongService songService) {
 		_songService = songService;
 	}

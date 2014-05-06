@@ -32,8 +32,10 @@ import org.liferay.jukebox.model.Artist;
 
 /**
  * @author Julio Camarero
+ * @deprecated As of 7.0.0, replaced by {@link org.liferay.jukebox.service.ArtistLocalServiceUtil#getExportActionableDynamicQuery()}
  * @generated
  */
+@Deprecated
 public class ArtistExportActionableDynamicQuery
 	extends ArtistActionableDynamicQuery {
 	public ArtistExportActionableDynamicQuery(

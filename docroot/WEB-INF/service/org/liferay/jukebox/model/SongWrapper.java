@@ -580,9 +580,22 @@ public class SongWrapper implements Song, ModelWrapper<Song> {
 		return _song.isInTrashContainer();
 	}
 
+	@Override
+	public boolean isInTrashExplicitly()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _song.isInTrashExplicitly();
+	}
+
+	@Override
+	public boolean isInTrashImplicitly()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _song.isInTrashImplicitly();
+	}
+
 	/**
 	* @deprecated As of 6.1.0, replaced by {@link #isApproved()}
 	*/
+	@Deprecated
 	@Override
 	public boolean getApproved() {
 		return _song.getApproved();
@@ -823,6 +836,7 @@ public class SongWrapper implements Song, ModelWrapper<Song> {
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
 	 */
+	@Deprecated
 	public Song getWrappedSong() {
 		return _song;
 	}
@@ -830,6 +844,16 @@ public class SongWrapper implements Song, ModelWrapper<Song> {
 	@Override
 	public Song getWrappedModel() {
 		return _song;
+	}
+
+	@Override
+	public boolean isEntityCacheEnabled() {
+		return _song.isEntityCacheEnabled();
+	}
+
+	@Override
+	public boolean isFinderCacheEnabled() {
+		return _song.isFinderCacheEnabled();
 	}
 
 	@Override

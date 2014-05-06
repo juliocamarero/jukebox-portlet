@@ -380,9 +380,16 @@ public interface AlbumModel extends BaseModel<Album>, ContainerModel,
 	@Override
 	public boolean isInTrashContainer();
 
+	@Override
+	public boolean isInTrashExplicitly() throws SystemException;
+
+	@Override
+	public boolean isInTrashImplicitly() throws SystemException;
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #isApproved()}
 	 */
+	@Deprecated
 	@Override
 	public boolean getApproved();
 

@@ -22,8 +22,10 @@ import org.liferay.jukebox.service.ArtistLocalServiceUtil;
 
 /**
  * @author Julio Camarero
+ * @deprecated As of 7.0.0, replaced by {@link ArtistLocalServiceUtil#getExportActionableDynamicQuery()}
  * @generated
  */
+@Deprecated
 public abstract class ArtistActionableDynamicQuery
 	extends BaseActionableDynamicQuery {
 	public ArtistActionableDynamicQuery() throws SystemException {

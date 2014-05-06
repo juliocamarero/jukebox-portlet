@@ -580,9 +580,22 @@ public class AlbumWrapper implements Album, ModelWrapper<Album> {
 		return _album.isInTrashContainer();
 	}
 
+	@Override
+	public boolean isInTrashExplicitly()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _album.isInTrashExplicitly();
+	}
+
+	@Override
+	public boolean isInTrashImplicitly()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _album.isInTrashImplicitly();
+	}
+
 	/**
 	* @deprecated As of 6.1.0, replaced by {@link #isApproved()}
 	*/
+	@Deprecated
 	@Override
 	public boolean getApproved() {
 		return _album.getApproved();
@@ -870,6 +883,7 @@ public class AlbumWrapper implements Album, ModelWrapper<Album> {
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
 	 */
+	@Deprecated
 	public Album getWrappedAlbum() {
 		return _album;
 	}
@@ -877,6 +891,16 @@ public class AlbumWrapper implements Album, ModelWrapper<Album> {
 	@Override
 	public Album getWrappedModel() {
 		return _album;
+	}
+
+	@Override
+	public boolean isEntityCacheEnabled() {
+		return _album.isEntityCacheEnabled();
+	}
+
+	@Override
+	public boolean isFinderCacheEnabled() {
+		return _album.isFinderCacheEnabled();
 	}
 
 	@Override

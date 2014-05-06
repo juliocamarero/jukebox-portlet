@@ -32,8 +32,10 @@ import org.liferay.jukebox.model.Album;
 
 /**
  * @author Julio Camarero
+ * @deprecated As of 7.0.0, replaced by {@link org.liferay.jukebox.service.AlbumLocalServiceUtil#getExportActionableDynamicQuery()}
  * @generated
  */
+@Deprecated
 public class AlbumExportActionableDynamicQuery
 	extends AlbumActionableDynamicQuery {
 	public AlbumExportActionableDynamicQuery(

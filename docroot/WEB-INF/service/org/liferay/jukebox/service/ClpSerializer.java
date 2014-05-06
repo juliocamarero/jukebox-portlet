@@ -14,8 +14,6 @@
 
 package org.liferay.jukebox.service;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.log.Log;
@@ -245,6 +243,13 @@ public class ClpSerializer {
 
 				return throwable;
 			}
+			catch (ClassNotFoundException cnfe) {
+				if (_log.isInfoEnabled()) {
+					_log.info("Do not use reflection to translate throwable");
+				}
+
+				_useReflectionToTranslateThrowable = false;
+			}
 			catch (SecurityException se) {
 				if (_log.isInfoEnabled()) {
 					_log.info("Do not use reflection to translate throwable");
@@ -263,60 +268,64 @@ public class ClpSerializer {
 
 		String className = clazz.getName();
 
-		if (className.equals(PortalException.class.getName())) {
-			return new PortalException();
-		}
-
-		if (className.equals(SystemException.class.getName())) {
-			return new SystemException();
-		}
-
 		if (className.equals("org.liferay.jukebox.AlbumNameException")) {
-			return new org.liferay.jukebox.AlbumNameException();
+			return new org.liferay.jukebox.AlbumNameException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.ArtistNameException")) {
-			return new org.liferay.jukebox.ArtistNameException();
+			return new org.liferay.jukebox.ArtistNameException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.DuplicatedAlbumException")) {
-			return new org.liferay.jukebox.DuplicatedAlbumException();
+			return new org.liferay.jukebox.DuplicatedAlbumException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.DuplicatedArtistException")) {
-			return new org.liferay.jukebox.DuplicatedArtistException();
+			return new org.liferay.jukebox.DuplicatedArtistException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.DuplicatedSongException")) {
-			return new org.liferay.jukebox.DuplicatedSongException();
+			return new org.liferay.jukebox.DuplicatedSongException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.NoSuchAlbumException")) {
-			return new org.liferay.jukebox.NoSuchAlbumException();
+			return new org.liferay.jukebox.NoSuchAlbumException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.NoSuchArtistException")) {
-			return new org.liferay.jukebox.NoSuchArtistException();
+			return new org.liferay.jukebox.NoSuchArtistException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.NoSuchSongException")) {
-			return new org.liferay.jukebox.NoSuchSongException();
+			return new org.liferay.jukebox.NoSuchSongException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.SongNameException")) {
-			return new org.liferay.jukebox.SongNameException();
+			return new org.liferay.jukebox.SongNameException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.NoSuchAlbumException")) {
-			return new org.liferay.jukebox.NoSuchAlbumException();
+			return new org.liferay.jukebox.NoSuchAlbumException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.NoSuchArtistException")) {
-			return new org.liferay.jukebox.NoSuchArtistException();
+			return new org.liferay.jukebox.NoSuchArtistException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		if (className.equals("org.liferay.jukebox.NoSuchSongException")) {
-			return new org.liferay.jukebox.NoSuchSongException();
+			return new org.liferay.jukebox.NoSuchSongException(throwable.getMessage(),
+				throwable.getCause());
 		}
 
 		return throwable;

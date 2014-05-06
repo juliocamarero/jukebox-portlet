@@ -22,8 +22,10 @@ import org.liferay.jukebox.service.SongLocalServiceUtil;
 
 /**
  * @author Julio Camarero
+ * @deprecated As of 7.0.0, replaced by {@link SongLocalServiceUtil#getExportActionableDynamicQuery()}
  * @generated
  */
+@Deprecated
 public abstract class SongActionableDynamicQuery
 	extends BaseActionableDynamicQuery {
 	public SongActionableDynamicQuery() throws SystemException {

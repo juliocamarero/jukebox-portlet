@@ -120,6 +120,7 @@ public class ArtistServiceWrapper implements ArtistService,
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */
+	@Deprecated
 	public ArtistService getWrappedArtistService() {
 		return _artistService;
 	}
@@ -127,6 +128,7 @@ public class ArtistServiceWrapper implements ArtistService,
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
 	 */
+	@Deprecated
 	public void setWrappedArtistService(ArtistService artistService) {
 		_artistService = artistService;
 	}

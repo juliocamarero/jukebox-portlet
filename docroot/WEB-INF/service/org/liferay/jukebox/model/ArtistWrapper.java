@@ -553,9 +553,22 @@ public class ArtistWrapper implements Artist, ModelWrapper<Artist> {
 		return _artist.isInTrashContainer();
 	}
 
+	@Override
+	public boolean isInTrashExplicitly()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _artist.isInTrashExplicitly();
+	}
+
+	@Override
+	public boolean isInTrashImplicitly()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _artist.isInTrashImplicitly();
+	}
+
 	/**
 	* @deprecated As of 6.1.0, replaced by {@link #isApproved()}
 	*/
+	@Deprecated
 	@Override
 	public boolean getApproved() {
 		return _artist.getApproved();
@@ -793,6 +806,7 @@ public class ArtistWrapper implements Artist, ModelWrapper<Artist> {
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
 	 */
+	@Deprecated
 	public Artist getWrappedArtist() {
 		return _artist;
 	}
@@ -800,6 +814,16 @@ public class ArtistWrapper implements Artist, ModelWrapper<Artist> {
 	@Override
 	public Artist getWrappedModel() {
 		return _artist;
+	}
+
+	@Override
+	public boolean isEntityCacheEnabled() {
+		return _artist.isEntityCacheEnabled();
+	}
+
+	@Override
+	public boolean isFinderCacheEnabled() {
+		return _artist.isFinderCacheEnabled();
 	}
 
 	@Override

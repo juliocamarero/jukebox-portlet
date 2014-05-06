@@ -22,8 +22,10 @@ import org.liferay.jukebox.service.AlbumLocalServiceUtil;
 
 /**
  * @author Julio Camarero
+ * @deprecated As of 7.0.0, replaced by {@link AlbumLocalServiceUtil#getExportActionableDynamicQuery()}
  * @generated
  */
+@Deprecated
 public abstract class AlbumActionableDynamicQuery
 	extends BaseActionableDynamicQuery {
 	public AlbumActionableDynamicQuery() throws SystemException {
