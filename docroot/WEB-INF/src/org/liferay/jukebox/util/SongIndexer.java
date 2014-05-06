@@ -68,8 +68,7 @@ public class SongIndexer extends BaseIndexer {
 		if (obj instanceof DLFileEntry) {
 			DLFileEntry dlFileEntry = (DLFileEntry)obj;
 
-			Song song = SongLocalServiceUtil.getSong(
-				GetterUtil.getLong(dlFileEntry.getTitle()));
+			Song song = SongLocalServiceUtil.getSong(dlFileEntry.getClassPK());
 
 			document.addKeyword(
 				Field.CLASS_NAME_ID,
