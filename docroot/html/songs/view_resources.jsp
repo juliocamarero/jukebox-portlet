@@ -50,7 +50,7 @@ else {
 
 <c:choose>
 	<c:when test="<%= portletDisplayDDMTemplateId > 0 %>">
-		<%= PortletDisplayTemplateUtil.renderDDMTemplate(pageContext, portletDisplayDDMTemplateId, songs) %>
+		<%= PortletDisplayTemplateUtil.renderDDMTemplate(request, response, portletDisplayDDMTemplateId, songs) %>
 	</c:when>
 	<c:when test="<%= songs.isEmpty() %>">
 		<div class="alert alert-info">
