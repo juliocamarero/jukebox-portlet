@@ -57,7 +57,7 @@ else {
 		</div>
 	</c:when>
 	<c:otherwise>
-		<ul class="unstyled albums-list">
+		<ul class="list-unstyled albums-list">
 
 			<portlet:renderURL var="redirectURL">
 				<c:choose>

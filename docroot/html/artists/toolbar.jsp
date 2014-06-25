@@ -23,7 +23,7 @@ boolean searchView = ParamUtil.getBoolean(request, "searchView");
 %>
 
 <aui:nav-bar>
-	<aui:nav>
+	<aui:nav cssClass="navbar-nav">
 		<c:if test='<%= JukeBoxPermission.contains(permissionChecker, scopeGroupId, "ADD_ARTIST") %>'>
 			<portlet:renderURL var="editArtistURL">
 				<portlet:param name="jspPage" value="/html/artists/edit_artist.jsp" />
@@ -34,33 +34,31 @@ boolean searchView = ParamUtil.getBoolean(request, "searchView");
 		</c:if>
 	</aui:nav>
 
-	<aui:nav-bar-search cssClass="pull-right">
-		<div class="form-search">
+	<aui:nav-bar-search cssClass="navbar-search-advanced">
 
-			<%
-			PortletURL portletURL = renderResponse.createRenderURL();
+		<%
+		PortletURL portletURL = renderResponse.createRenderURL();
 
-			portletURL.setParameter("jspPage", "/html/artists/view_search.jsp");
-			portletURL.setParameter("redirect", PortalUtil.getCurrentURL(renderRequest));
+		portletURL.setParameter("jspPage", "/html/artists/view_search.jsp");
+		portletURL.setParameter("redirect", PortalUtil.getCurrentURL(renderRequest));
 
-			ArtistSearch searchContainer = new ArtistSearch(renderRequest, portletURL);
+		ArtistSearch searchContainer = new ArtistSearch(renderRequest, portletURL);
 
-			ArtistDisplayTerms displayTerms = (ArtistDisplayTerms)searchContainer.getDisplayTerms();
-			%>
+		ArtistDisplayTerms displayTerms = (ArtistDisplayTerms)searchContainer.getDisplayTerms();
+		%>
 
-			<liferay-ui:search-toggle
-				autoFocus="<%= liferayPortletRequest.getWindowState().equals(WindowState.MAXIMIZED) %>"
-				buttonLabel="search"
-				displayTerms="<%= displayTerms %>"
-				id="<%= renderResponse.getNamespace() %>"
-			>
-				<aui:fieldset>
-					<aui:input label="name" name="<%= displayTerms.TITLE %>" size="20" type="text" value="<%= displayTerms.getTitle() %>" />
+		<liferay-ui:search-toggle
+			autoFocus="<%= liferayPortletRequest.getWindowState().equals(WindowState.MAXIMIZED) %>"
+			buttonLabel="search"
+			displayTerms="<%= displayTerms %>"
+			id="<%= renderResponse.getNamespace() %>"
+		>
+			<aui:fieldset>
+				<aui:input label="name" name="<%= displayTerms.TITLE %>" size="20" type="text" value="<%= displayTerms.getTitle() %>" />
 
-					<aui:input name="<%= displayTerms.BIO %>" size="20" type="text" value="<%= displayTerms.getBio() %>" />
-				</aui:fieldset>
-			</liferay-ui:search-toggle>
-		</div>
+				<aui:input name="<%= displayTerms.BIO %>" size="20" type="text" value="<%= displayTerms.getBio() %>" />
+			</aui:fieldset>
+		</liferay-ui:search-toggle>
 	</aui:nav-bar-search>
 </aui:nav-bar>
 

@@ -37,7 +37,7 @@ Indexer indexer = IndexerRegistryUtil.getIndexer("org.liferay.jukebox.model.Arti
 <div class="<%= cssClass %>" data-facetFieldName="<%= facet.getFieldId() %>" id="<%= randomNamespace %>facet">
 	<aui:input name="<%= facet.getFieldId() %>" type="hidden" value="<%= fieldParam %>" />
 
-	<ul class="artist unstyled">
+	<ul class="artist list-unstyled">
 		<li class="facet-value default <%= Validator.isNull(fieldParam) ? "current-term" : StringPool.BLANK %>">
 			<a data-value="" href="javascript:;"><img alt="" class="any-artist-result" src='<%= themeDisplay.getPortalURL() + "/jukebox-portlet/icons/artists.png" %>' /><liferay-ui:message key="any" /> <liferay-ui:message key="<%= facetConfiguration.getLabel() %>" /></a>
 		</li>

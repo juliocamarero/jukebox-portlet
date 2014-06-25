@@ -52,7 +52,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 	</portlet:renderURL>
 
 	<aui:nav-bar>
-		<aui:nav>
+		<aui:nav cssClass="navbar-nav">
 			<portlet:renderURL var="editSongURL">
 				<portlet:param name="jspPage" value="/html/songs/edit_song.jsp" />
 				<portlet:param name="songId" value="<%= String.valueOf(song.getSongId()) %>" />
@@ -63,7 +63,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 		</aui:nav>
 
 		<c:if test="<%= SongPermission.contains(permissionChecker, song.getSongId(), ActionKeys.PERMISSIONS) %>">
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<liferay-security:permissionsURL
 					modelResource="<%= Song.class.getName() %>"
 					modelResourceDescription="<%= song.getName() %>"
@@ -82,7 +82,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 			boolean trashEnabled = TrashUtil.isTrashEnabled(scopeGroupId);
 			%>
 
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<portlet:actionURL name="deleteSong" var="deleteSongURL">
 					<portlet:param name="songId" value="<%= String.valueOf(song.getSongId()) %>" />
 					<portlet:param name="moveToTrash" value="<%= String.valueOf(trashEnabled) %>" />

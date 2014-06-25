@@ -50,7 +50,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 	</portlet:renderURL>
 
 	<aui:nav-bar>
-		<aui:nav>
+		<aui:nav cssClass="navbar-nav">
 			<portlet:renderURL var="editArtistURL">
 				<portlet:param name="jspPage" value="/html/artists/edit_artist.jsp" />
 				<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
@@ -61,7 +61,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 		</aui:nav>
 
 		<c:if test='<%= JukeBoxPermission.contains(permissionChecker, scopeGroupId, "ADD_ALBUM") %>'>
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<portlet:renderURL var="editArtistURL">
 					<portlet:param name="jspPage" value="/html/albums/edit_album.jsp" />
 					<portlet:param name="artistId" value="<%= String.valueOf(artistId) %>" />
@@ -73,7 +73,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 		</c:if>
 
 		<c:if test="<%= ArtistPermission.contains(permissionChecker, artist.getArtistId(), ActionKeys.PERMISSIONS) %>">
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<liferay-security:permissionsURL
 					modelResource="<%= Artist.class.getName() %>"
 					modelResourceDescription="<%= artist.getName() %>"
@@ -87,7 +87,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 		</c:if>
 
 		<c:if test="<%= ArtistPermission.contains(permissionChecker, artist.getArtistId(), ActionKeys.DELETE) %>">
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<portlet:actionURL name="deleteArtist" var="deleteArtistURL">
 					<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
 					<portlet:param name="redirect" value="<%= redirect %>" />
@@ -100,7 +100,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 </c:if>
 
 <div class="artist-detail">
-	<div class="container">
+	<div class="container-fluid">
 		<img alt="" class="img-circle artist-image" src="<%= artist.getImageURL(themeDisplay) %>" />
 
 		<div class="artist-metainfo">

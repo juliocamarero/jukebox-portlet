@@ -44,7 +44,7 @@ else {
 		</div>
 	</c:when>
 	<c:otherwise>
-		<ul class="artists-list unstyled">
+		<ul class="artists-list list-unstyled">
 
 			<%
 			for (Artist artist : artists) {

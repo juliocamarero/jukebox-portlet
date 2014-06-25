@@ -52,7 +52,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 	</portlet:renderURL>
 
 	<aui:nav-bar>
-		<aui:nav>
+		<aui:nav cssClass="navbar-nav">
 			<portlet:renderURL var="editAlbumURL">
 				<portlet:param name="jspPage" value="/html/albums/edit_album.jsp" />
 				<portlet:param name="albumId" value="<%= String.valueOf(album.getAlbumId()) %>" />
@@ -63,7 +63,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 		</aui:nav>
 
 		<c:if test='<%= JukeBoxPermission.contains(permissionChecker, scopeGroupId, "ADD_SONG") %>'>
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<portlet:renderURL var="editArtistURL">
 					<portlet:param name="jspPage" value="/html/songs/edit_song.jsp" />
 					<portlet:param name="albumId" value="<%= String.valueOf(albumId) %>" />
@@ -75,7 +75,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 		</c:if>
 
 		<c:if test="<%= AlbumPermission.contains(permissionChecker, album.getAlbumId(), ActionKeys.PERMISSIONS) %>">
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<liferay-security:permissionsURL
 					modelResource="<%= Album.class.getName() %>"
 					modelResourceDescription="<%= album.getName() %>"
@@ -94,7 +94,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 			boolean trashEnabled = TrashUtil.isTrashEnabled(scopeGroupId);
 			%>
 
-			<aui:nav>
+			<aui:nav cssClass="navbar-nav">
 				<portlet:actionURL name="deleteAlbum" var="deleteAlbumURL">
 					<portlet:param name="albumId" value="<%= String.valueOf(album.getAlbumId()) %>" />
 					<portlet:param name="moveToTrash" value="<%= String.valueOf(trashEnabled) %>" />
@@ -115,7 +115,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 </c:if>
 
 <div class="album-detail">
-	<div class="container">
+	<div class="container-fluid">
 		<img alt="" class="img-rounded album-image" src="<%= album.getImageURL(themeDisplay) %>" />
 
 		<div class="album-metainfo">
