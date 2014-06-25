@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.permission.StagingPermissionUtil;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -33,7 +32,7 @@ public class AlbumPermission {
 
 	public static void check(
 			PermissionChecker permissionChecker, Album album, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		if (!contains(permissionChecker, album, actionId)) {
 			throw new PrincipalException();
@@ -42,7 +41,7 @@ public class AlbumPermission {
 
 	public static void check(
 			PermissionChecker permissionChecker, long albumId, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Album album = AlbumLocalServiceUtil.getAlbum(albumId);
 
@@ -51,7 +50,7 @@ public class AlbumPermission {
 
 	public static boolean contains(
 			PermissionChecker permissionChecker, Album album, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Boolean hasPermission = StagingPermissionUtil.hasPermission(
 			permissionChecker, album.getGroupId(), Album.class.getName(),
@@ -68,7 +67,7 @@ public class AlbumPermission {
 
 	public static boolean contains(
 			PermissionChecker permissionChecker, long albumId, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Album album = AlbumLocalServiceUtil.getAlbum(albumId);
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.search.Indexable;
@@ -74,7 +73,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 	@Override
 	public void addEntryResources(
 			Song song, boolean addGroupPermissions, boolean addGuestPermissions)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		resourceLocalService.addResources(
 			song.getCompanyId(), song.getGroupId(), song.getUserId(),
@@ -85,7 +84,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 	@Override
 	public void addEntryResources(
 			Song song, String[] groupPermissions, String[] guestPermissions)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		resourceLocalService.addModelResources(
 			song.getCompanyId(), song.getGroupId(), song.getUserId(),
@@ -98,7 +97,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 			long userId, long albumId, String name, String songFileName,
 			InputStream songInputStream, String lyricsFileName,
 			InputStream lyricsInputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		long groupId = serviceContext.getScopeGroupId();
 
@@ -204,9 +203,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 	}
 
 	@Indexable(type = IndexableType.DELETE)
-	public Song deleteSong(long songId)
-		throws PortalException, SystemException {
-
+	public Song deleteSong(long songId) throws PortalException {
 		Song song = songPersistence.findByPrimaryKey(songId);
 
 		Repository repository =
@@ -229,51 +226,45 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 		return songPersistence.remove(songId);
 	}
 
-	public Song getSong(long groupId, long artistId, long albumId, String name)
-		throws SystemException {
+	public Song getSong(
+		long groupId, long artistId, long albumId, String name) {
 
 		return songPersistence.fetchByG_A_A_N(groupId, artistId, albumId, name);
 	}
 
-	public List<Song> getSongs(long groupId) throws SystemException {
+	public List<Song> getSongs(long groupId) {
 		return songPersistence.findByGroupId(groupId);
 	}
 
-	public List<Song> getSongs(long groupId, int start, int end)
-		throws SystemException {
-
+	public List<Song> getSongs(long groupId, int start, int end) {
 		return songPersistence.findByGroupId(groupId, start, end);
 	}
 
-	public List<Song> getSongsByAlbumId(long albumId) throws SystemException {
+	public List<Song> getSongsByAlbumId(long albumId) {
 		return songPersistence.findByAlbumId(albumId);
 	}
 
-	public List<Song> getSongsByAlbumId(long albumId, int start, int end)
-		throws SystemException {
-
+	public List<Song> getSongsByAlbumId(long albumId, int start, int end) {
 		return songPersistence.findByAlbumId(albumId, start, end);
 	}
 
-	public List<Song> getSongsByAlbumId(long groupId, long albumId, int status)
-		throws SystemException {
+	public List<Song> getSongsByAlbumId(
+		long groupId, long albumId, int status) {
 
 		return songPersistence.findByG_A_S(groupId, albumId, status);
 	}
 
-	public int getSongsByAlbumIdCount(long albumId) throws SystemException {
+	public int getSongsByAlbumIdCount(long albumId) {
 		return songPersistence.countByAlbumId(albumId);
 	}
 
-	public int getSongsCount(long groupId) throws SystemException {
+	public int getSongsCount(long groupId) {
 		return songPersistence.countByGroupId(groupId);
 	}
 
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
-	public Song moveSong(long songId, long albumId)
-		throws PortalException, SystemException {
-
+	public Song moveSong(long songId, long albumId) throws PortalException {
 		Song song = getSong(songId);
 
 		song.setAlbumId(albumId);
@@ -285,7 +276,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 
 	@Override
 	public Song moveSongFromTrash(long userId, long songId, long albumId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Song song = getSong(songId);
 
@@ -346,9 +337,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 	}
 
 	@Indexable(type = IndexableType.REINDEX)
-	public Song moveSongToTrash(long userId, Song song)
-		throws PortalException, SystemException {
-
+	public Song moveSongToTrash(long userId, Song song) throws PortalException {
 		ServiceContext serviceContext = new ServiceContext();
 
 		// Entry
@@ -389,7 +378,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
 	public Song restoreSongFromTrash(long userId, long songId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		ServiceContext serviceContext = new ServiceContext();
 
@@ -423,7 +412,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 	public void updateAsset(
 			long userId, Song song, long[] assetCategoryIds,
 			String[] assetTagNames, long[] assetLinkEntryIds)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		AssetEntry assetEntry = assetEntryLocalService.updateEntry(
 			userId, song.getGroupId(), song.getCreateDate(),
@@ -443,7 +432,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 			String songFileName, InputStream songInputStream,
 			String lyricsFileName, InputStream lyricsInputStream,
 			ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		// Event
 
@@ -560,7 +549,7 @@ public class SongLocalServiceImpl extends SongLocalServiceBaseImpl {
 
 	protected void validate(
 			long songId, long groupId, long artistId, long albumId, String name)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		if (Validator.isNull(name)) {
 			throw new SongNameException();

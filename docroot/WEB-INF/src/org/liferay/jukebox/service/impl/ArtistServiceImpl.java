@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceContext;
@@ -50,7 +49,7 @@ public class ArtistServiceImpl extends ArtistServiceBaseImpl {
 	public Artist addArtist(
 			String name, String bio, InputStream inputStream,
 			ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		JukeBoxPermission.check(
 			getPermissionChecker(), serviceContext.getScopeGroupId(),
@@ -61,7 +60,7 @@ public class ArtistServiceImpl extends ArtistServiceBaseImpl {
 	}
 
 	public Artist deleteArtist(long artistId, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		ArtistPermission.check(
 			getPermissionChecker(), artistId, ActionKeys.DELETE);
@@ -69,33 +68,27 @@ public class ArtistServiceImpl extends ArtistServiceBaseImpl {
 		return artistLocalService.deleteArtist(artistId);
 	}
 
-	public List<Artist> getArtists(long groupId) throws SystemException {
+	public List<Artist> getArtists(long groupId) {
 		return artistPersistence.filterFindByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Artist> getArtists(long groupId, int start, int end)
-		throws SystemException {
-
+	public List<Artist> getArtists(long groupId, int start, int end) {
 		return artistPersistence.filterFindByG_S(
 			groupId, start, end, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Artist> getArtists(long groupId, String keywords)
-		throws SystemException {
-
+	public List<Artist> getArtists(long groupId, String keywords) {
 		return artistPersistence.filterFindByG_LikeN_S(
 			groupId, keywords, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getArtistsCount(long groupId) throws SystemException {
+	public int getArtistsCount(long groupId) {
 		return artistPersistence.filterCountByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getArtistsCount(long groupId, String keywords)
-		throws SystemException {
-
+	public int getArtistsCount(long groupId, String keywords) {
 		return artistPersistence.filterCountByG_LikeN_S(
 			groupId, keywords, WorkflowConstants.STATUS_APPROVED);
 	}
@@ -103,7 +96,7 @@ public class ArtistServiceImpl extends ArtistServiceBaseImpl {
 	public Artist updateArtist(
 			long artistId, String name, String bio, InputStream inputStream,
 			ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		ArtistPermission.check(
 			getPermissionChecker(), artistId, ActionKeys.UPDATE);

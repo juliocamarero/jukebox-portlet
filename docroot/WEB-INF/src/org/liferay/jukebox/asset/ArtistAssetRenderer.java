@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.asset;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.util.StringPool;
@@ -196,7 +195,7 @@ public class ArtistAssetRenderer extends BaseAssetRenderer {
 	}
 
 	public boolean hasDeletePermission(PermissionChecker permissionChecker)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return ArtistPermission.contains(
 			permissionChecker, _artist.getArtistId(), ActionKeys.DELETE);
@@ -204,7 +203,7 @@ public class ArtistAssetRenderer extends BaseAssetRenderer {
 
 	@Override
 	public boolean hasEditPermission(PermissionChecker permissionChecker)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return ArtistPermission.contains(
 			permissionChecker, _artist.getArtistId(), ActionKeys.UPDATE);
@@ -212,7 +211,7 @@ public class ArtistAssetRenderer extends BaseAssetRenderer {
 
 	@Override
 	public boolean hasViewPermission(PermissionChecker permissionChecker)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return ArtistPermission.contains(
 			permissionChecker, _artist.getArtistId(), ActionKeys.VIEW);

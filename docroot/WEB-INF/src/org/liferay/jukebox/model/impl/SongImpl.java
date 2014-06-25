@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.StringPool;
@@ -44,15 +43,13 @@ import org.liferay.jukebox.util.Constants;
  */
 public class SongImpl extends SongBaseImpl {
 
-	public String getImageURL(ThemeDisplay themeDisplay)
-		throws SystemException {
-
+	public String getImageURL(ThemeDisplay themeDisplay) {
 		return themeDisplay.getPortalURL() +
 			"/jukebox-portlet/images/song.png";
 	}
 
 	public String getLyricsURL(ThemeDisplay themeDisplay)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		FileEntry fileEntry = getFileEntry(
 			themeDisplay, Constants.LYRICS_FOLDER_NAME);
@@ -67,7 +64,7 @@ public class SongImpl extends SongBaseImpl {
 	}
 
 	public String getSongURL(ThemeDisplay themeDisplay, String audioContainer)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		FileEntry fileEntry = getFileEntry(
 			themeDisplay, Constants.SONGS_FOLDER_NAME);
@@ -92,8 +89,7 @@ public class SongImpl extends SongBaseImpl {
 	}
 
 	protected FileEntry getFileEntry(
-			ThemeDisplay themeDisplay, String folderName)
-		throws SystemException {
+		ThemeDisplay themeDisplay, String folderName) {
 
 		Repository repository =
 			PortletFileRepositoryUtil.fetchPortletRepository(

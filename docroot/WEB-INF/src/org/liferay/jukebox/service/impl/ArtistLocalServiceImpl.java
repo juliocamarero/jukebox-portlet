@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.Indexable;
@@ -65,7 +64,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 	public Artist addArtist(
 			long userId, String name, String bio, InputStream inputStream,
 			ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		long groupId = serviceContext.getScopeGroupId();
 
@@ -135,7 +134,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 	public void addEntryResources(
 			Artist artist, boolean addGroupPermissions,
 			boolean addGuestPermissions)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		resourceLocalService.addResources(
 			artist.getCompanyId(), artist.getGroupId(), artist.getUserId(),
@@ -146,7 +145,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 	@Override
 	public void addEntryResources(
 			Artist artist, String[] groupPermissions, String[] guestPermissions)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		resourceLocalService.addModelResources(
 			artist.getCompanyId(), artist.getGroupId(), artist.getUserId(),
@@ -155,9 +154,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 	}
 
 	@Indexable(type = IndexableType.DELETE)
-	public Artist deleteArtist(long artistId)
-		throws PortalException, SystemException {
-
+	public Artist deleteArtist(long artistId) throws PortalException {
 		Artist artist = artistPersistence.findByPrimaryKey(artistId);
 
 		List<Album> albums = albumLocalService.getAlbumsByArtistId(artistId);
@@ -177,9 +174,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 		return artistPersistence.remove(artistId);
 	}
 
-	public void deleteArtists(long groupId)
-		throws PortalException, SystemException {
-
+	public void deleteArtists(long groupId) throws PortalException {
 		List<Artist> artists = getArtists(groupId);
 
 		for (Artist artist : artists) {
@@ -187,17 +182,15 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 		}
 	}
 
-	public List<Artist> getArtists(long groupId) throws SystemException {
+	public List<Artist> getArtists(long groupId) {
 		return artistPersistence.findByGroupId(groupId);
 	}
 
-	public List<Artist> getArtists(long groupId, int start, int end)
-		throws SystemException {
-
+	public List<Artist> getArtists(long groupId, int start, int end) {
 		return artistPersistence.findByGroupId(groupId, start, end);
 	}
 
-	public int getArtistsCount(long groupId) throws SystemException {
+	public int getArtistsCount(long groupId) {
 		return artistPersistence.countByGroupId(groupId);
 	}
 
@@ -205,7 +198,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 	public Artist updateArtist(
 			long userId, long artistId, String name, String bio,
 			InputStream inputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		// Event
 
@@ -263,7 +256,7 @@ public class ArtistLocalServiceImpl extends ArtistLocalServiceBaseImpl {
 	public void updateAsset(
 			long userId, Artist artist, long[] assetCategoryIds,
 			String[] assetTagNames, long[] assetLinkEntryIds)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		AssetEntry assetEntry = assetEntryLocalService.updateEntry(
 			userId, artist.getGroupId(), artist.getCreateDate(),

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Repository;
@@ -39,7 +38,7 @@ import org.liferay.jukebox.util.Constants;
  */
 public class ArtistImpl extends ArtistBaseImpl {
 
-	public FileEntry getCustomImage() throws SystemException {
+	public FileEntry getCustomImage() {
 		Repository repository =
 			PortletFileRepositoryUtil.fetchPortletRepository(
 			getGroupId(), Constants.JUKEBOX_PORTLET_REPOSITORY);
@@ -60,7 +59,7 @@ public class ArtistImpl extends ArtistBaseImpl {
 	}
 
 	public String getImageURL(ThemeDisplay themeDisplay)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		FileEntry fileEntry = getCustomImage();
 
@@ -75,7 +74,7 @@ public class ArtistImpl extends ArtistBaseImpl {
 		}
 	}
 
-	public boolean hasCustomImage() throws PortalException, SystemException {
+	public boolean hasCustomImage() throws PortalException {
 		FileEntry fileEntry = getCustomImage();
 
 		if (fileEntry != null) {

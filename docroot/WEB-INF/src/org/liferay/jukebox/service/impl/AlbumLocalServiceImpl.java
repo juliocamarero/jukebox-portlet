@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.Indexable;
@@ -69,7 +68,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	public Album addAlbum(
 			long userId, long artistId, String name, int year,
 			InputStream inputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		long groupId = serviceContext.getScopeGroupId();
 
@@ -140,7 +139,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	public void addEntryResources(
 			Album album, boolean addGroupPermissions,
 			boolean addGuestPermissions)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		resourceLocalService.addResources(
 			album.getCompanyId(), album.getGroupId(), album.getUserId(),
@@ -151,7 +150,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	@Override
 	public void addEntryResources(
 			Album album, String[] groupPermissions, String[] guestPermissions)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		resourceLocalService.addModelResources(
 			album.getCompanyId(), album.getGroupId(), album.getUserId(),
@@ -160,9 +159,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	}
 
 	@Indexable(type = IndexableType.DELETE)
-	public Album deleteAlbum(long albumId)
-		throws PortalException, SystemException {
-
+	public Album deleteAlbum(long albumId) throws PortalException {
 		Album album = albumPersistence.findByPrimaryKey(albumId);
 
 		List<Song> songs = songLocalService.getSongsByAlbumId(albumId);
@@ -182,9 +179,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 		return albumPersistence.remove(albumId);
 	}
 
-	public void deleteAlbums(long groupId)
-		throws PortalException, SystemException {
-
+	public void deleteAlbums(long groupId) throws PortalException {
 		List<Album> albums = getAlbums(groupId);
 
 		for (Album album : albums) {
@@ -192,30 +187,26 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 		}
 	}
 
-	public List<Album> getAlbums(long groupId) throws SystemException {
+	public List<Album> getAlbums(long groupId) {
 		return albumPersistence.findByGroupId(groupId);
 	}
 
-	public List<Album> getAlbums(long groupId, int start, int end)
-		throws SystemException {
-
+	public List<Album> getAlbums(long groupId, int start, int end) {
 		return albumPersistence.findByGroupId(groupId, start, end);
 	}
 
-	public List<Album> getAlbumsByArtistId(long artistId)
-		throws SystemException {
-
+	public List<Album> getAlbumsByArtistId(long artistId) {
 		return albumPersistence.findByArtistId(artistId);
 	}
 
-	public int getAlbumsCount(long groupId) throws SystemException {
+	public int getAlbumsCount(long groupId) {
 		return albumPersistence.countByGroupId(groupId);
 	}
 
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
 	public Album moveAlbumToTrash(long userId, long albumId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		ServiceContext serviceContext = new ServiceContext();
 
@@ -260,7 +251,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
 	public Album restoreAlbumFromTrash(long userId, long albumId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		ServiceContext serviceContext = new ServiceContext();
 
@@ -304,7 +295,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	public Album updateAlbum(
 			long userId, long albumId, long artistId, String name, int year,
 			InputStream inputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		// Event
 
@@ -362,7 +353,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	public void updateAsset(
 			long userId, Album album, long[] assetCategoryIds,
 			String[] assetTagNames, long[] assetLinkEntryIds)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		AssetEntry assetEntry = assetEntryLocalService.updateEntry(
 			userId, album.getGroupId(), album.getCreateDate(),
@@ -377,7 +368,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 	}
 
 	protected void moveDependentsToTrash(List<Song> songs, long trashEntryId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		for (Song song : songs) {
 
@@ -423,7 +414,7 @@ public class AlbumLocalServiceImpl extends AlbumLocalServiceBaseImpl {
 
 	protected void restoreDependentsFromTrash(
 			List<Song> songs, long trashEntryId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		for (Song song : songs) {
 

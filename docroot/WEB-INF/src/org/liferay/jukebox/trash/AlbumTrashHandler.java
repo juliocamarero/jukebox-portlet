@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.trash;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -41,9 +40,7 @@ import org.liferay.jukebox.util.PortletKeys;
 public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 
 	@Override
-	public void deleteTrashEntry(long classPK)
-		throws PortalException, SystemException {
-
+	public void deleteTrashEntry(long classPK) throws PortalException {
 		AlbumLocalServiceUtil.deleteAlbum(classPK);
 	}
 
@@ -60,7 +57,7 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 	@Override
 	public String getRestoreContainedModelLink(
 			PortletRequest portletRequest, long classPK)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Album album = AlbumLocalServiceUtil.getAlbum(classPK);
 
@@ -82,18 +79,14 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 	}
 
 	@Override
-	public TrashEntry getTrashEntry(long classPK)
-		throws PortalException, SystemException {
-
+	public TrashEntry getTrashEntry(long classPK) throws PortalException {
 		Album album = getAlbum(classPK);
 
 		return album.getTrashEntry();
 	}
 
 	@Override
-	public TrashRenderer getTrashRenderer(long classPK)
-		throws PortalException, SystemException {
-
+	public TrashRenderer getTrashRenderer(long classPK) throws PortalException {
 		Album album = getAlbum(classPK);
 
 		return new AlbumAssetRenderer(album);
@@ -103,7 +96,7 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 	public boolean hasTrashPermission(
 			PermissionChecker permissionChecker, long groupId, long classPK,
 			String trashActionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return super.hasTrashPermission(
 			permissionChecker, groupId, classPK, trashActionId);
@@ -115,9 +108,7 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 	}
 
 	@Override
-	public boolean isInTrash(long classPK)
-		throws PortalException, SystemException {
-
+	public boolean isInTrash(long classPK) throws PortalException {
 		Album album = AlbumLocalServiceUtil.getAlbum(classPK);
 
 		return album.isInTrash();
@@ -130,21 +121,17 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 
 	@Override
 	public void restoreTrashEntry(long userId, long classPK)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		AlbumLocalServiceUtil.restoreAlbumFromTrash(userId, classPK);
 	}
 
-	protected Album getAlbum(long classPK)
-		throws PortalException, SystemException {
-
+	protected Album getAlbum(long classPK) throws PortalException {
 		return AlbumLocalServiceUtil.getAlbum(classPK);
 	}
 
 	@Override
-	protected long getGroupId(long classPK)
-		throws PortalException, SystemException {
-
+	protected long getGroupId(long classPK) throws PortalException {
 		Album album = getAlbum(classPK);
 
 		return album.getGroupId();
@@ -152,7 +139,7 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 
 	protected PortletURL getRestoreURL(
 			PortletRequest portletRequest, long classPK)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		String portletId = PortletKeys.ALBUMS;
 
@@ -172,7 +159,7 @@ public class AlbumTrashHandler extends JukeBoxBaseTrashHandler {
 	@Override
 	protected boolean hasPermission(
 			PermissionChecker permissionChecker, long classPK, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return AlbumPermission.contains(permissionChecker, classPK, actionId);
 	}

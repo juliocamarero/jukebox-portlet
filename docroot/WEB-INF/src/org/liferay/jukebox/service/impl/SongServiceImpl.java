@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceContext;
@@ -51,7 +50,7 @@ public class SongServiceImpl extends SongServiceBaseImpl {
 			long albumId, String name, String songFileName,
 			InputStream songInputStream, String lyricsFileName,
 			InputStream lyricsInputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		JukeBoxPermission.check(
 			getPermissionChecker(), serviceContext.getScopeGroupId(),
@@ -63,41 +62,35 @@ public class SongServiceImpl extends SongServiceBaseImpl {
 	}
 
 	public Song deleteSong(long songId, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		SongPermission.check(getPermissionChecker(), songId, ActionKeys.DELETE);
 
 		return songLocalService.deleteSong(songId);
 	}
 
-	public List<Song> getSongs(long groupId) throws SystemException {
+	public List<Song> getSongs(long groupId) {
 		return songPersistence.filterFindByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Song> getSongs(long groupId, int start, int end)
-		throws SystemException {
-
+	public List<Song> getSongs(long groupId, int start, int end) {
 		return songPersistence.filterFindByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED, start, end);
 	}
 
-	public List<Song> getSongs(long groupId, String keywords)
-		throws SystemException {
-
+	public List<Song> getSongs(long groupId, String keywords) {
 		return songPersistence.filterFindByG_LikeN_S(
 			groupId, keywords, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Song> getSongsByAlbumId(long groupId, long albumId)
-		throws SystemException {
-
+	public List<Song> getSongsByAlbumId(long groupId, long albumId) {
 		return songPersistence.filterFindByG_A_S(
 			groupId, albumId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Song> getSongsByAlbumId(long groupId, long albumId, int status)
-		throws SystemException {
+	public List<Song> getSongsByAlbumId(
+		long groupId, long albumId, int status) {
 
 		if (status == WorkflowConstants.STATUS_APPROVED) {
 			return songPersistence.filterFindByG_A(groupId, albumId);
@@ -106,28 +99,22 @@ public class SongServiceImpl extends SongServiceBaseImpl {
 		return songPersistence.filterFindByG_A_S(groupId, albumId, status);
 	}
 
-	public int getSongsCount(long groupId) throws SystemException {
+	public int getSongsCount(long groupId) {
 		return songPersistence.filterCountByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getSongsCount(long groupId, String keywords)
-		throws SystemException {
-
+	public int getSongsCount(long groupId, String keywords) {
 		return songPersistence.filterCountByG_LikeN_S(
 			groupId, keywords, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getSongsCountByAlbumId(long groupId, long albumId)
-		throws SystemException {
-
+	public int getSongsCountByAlbumId(long groupId, long albumId) {
 		return songPersistence.filterCountByG_A_S(
 			groupId, albumId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getSongsCountByAlbumId(long groupId, long albumId, int status)
-		throws SystemException {
-
+	public int getSongsCountByAlbumId(long groupId, long albumId, int status) {
 		if (status == WorkflowConstants.STATUS_APPROVED) {
 			return songPersistence.filterCountByG_A(groupId, albumId);
 		}
@@ -136,9 +123,7 @@ public class SongServiceImpl extends SongServiceBaseImpl {
 	}
 
 	@Override
-	public Song moveSongToTrash(long songId)
-		throws PortalException, SystemException {
-
+	public Song moveSongToTrash(long songId) throws PortalException {
 		Song song = songPersistence.findByPrimaryKey(songId);
 
 		SongPermission.check(getPermissionChecker(), song, ActionKeys.DELETE);
@@ -147,9 +132,7 @@ public class SongServiceImpl extends SongServiceBaseImpl {
 	}
 
 	@Override
-	public Song restoreSongFromTrash(long songId)
-		throws PortalException, SystemException {
-
+	public Song restoreSongFromTrash(long songId) throws PortalException {
 		SongPermission.check(getPermissionChecker(), songId, ActionKeys.DELETE);
 
 		return songLocalService.restoreSongFromTrash(getUserId(), songId);
@@ -159,7 +142,7 @@ public class SongServiceImpl extends SongServiceBaseImpl {
 			long songId, long albumId, String name, String songFileName,
 			InputStream songInputStream, String lyricsFileName,
 			InputStream lyricsInputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		SongPermission.check(getPermissionChecker(), songId, ActionKeys.UPDATE);
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.permission.StagingPermissionUtil;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -33,7 +32,7 @@ public class SongPermission {
 
 	public static void check(
 			PermissionChecker permissionChecker, long songId, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		if (!contains(permissionChecker, songId, actionId)) {
 			throw new PrincipalException();
@@ -42,7 +41,7 @@ public class SongPermission {
 
 	public static void check(
 			PermissionChecker permissionChecker, Song song, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		if (!contains(permissionChecker, song, actionId)) {
 			throw new PrincipalException();
@@ -51,7 +50,7 @@ public class SongPermission {
 
 	public static boolean contains(
 			PermissionChecker permissionChecker, long songId, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Song song = SongLocalServiceUtil.getSong(songId);
 
@@ -70,7 +69,7 @@ public class SongPermission {
 
 	public static boolean contains(
 			PermissionChecker permissionChecker, Song song, String actionId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return permissionChecker.hasPermission(
 			song.getGroupId(), Song.class.getName(), song.getSongId(),

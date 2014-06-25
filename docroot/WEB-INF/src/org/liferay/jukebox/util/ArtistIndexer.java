@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,7 +17,6 @@ package org.liferay.jukebox.util;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.BooleanQuery;
 import com.liferay.portal.kernel.search.Document;
@@ -148,9 +147,8 @@ public class ArtistIndexer extends BaseIndexer {
 
 	@Override
 	protected Summary doGetSummary(
-		Document document, Locale locale, String snippet,
-		PortletURL portletURL, PortletRequest portletRequest,
-		PortletResponse portletResponse) {
+		Document document, Locale locale, String snippet, PortletURL portletURL,
+		PortletRequest portletRequest, PortletResponse portletResponse) {
 
 		Summary summary = createSummary(document);
 
@@ -199,9 +197,7 @@ public class ArtistIndexer extends BaseIndexer {
 		return PORTLET_ID;
 	}
 
-	protected void reindexEntries(long companyId)
-		throws PortalException, SystemException {
-
+	protected void reindexEntries(long companyId) throws PortalException {
 		final Collection<Document> documents = new ArrayList<Document>();
 
 		ActionableDynamicQuery actionableDynamicQuery =

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.trash;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.trash.BaseTrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
@@ -39,7 +38,7 @@ public abstract class JukeBoxBaseTrashHandler extends BaseTrashHandler {
 
 	@Override
 	public ContainerModel getContainerModel(long containerModelId)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		return AlbumLocalServiceUtil.getAlbum(containerModelId);
 	}
@@ -56,7 +55,7 @@ public abstract class JukeBoxBaseTrashHandler extends BaseTrashHandler {
 
 	@Override
 	public List<ContainerModel> getParentContainerModels(long classPK)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		List<ContainerModel> containerModels = new ArrayList<ContainerModel>();
 
@@ -89,7 +88,7 @@ public abstract class JukeBoxBaseTrashHandler extends BaseTrashHandler {
 
 	@Override
 	public int getTrashContainedModelsCount(long classPK)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		Album album = AlbumLocalServiceUtil.getAlbum(classPK);
 
@@ -99,12 +98,12 @@ public abstract class JukeBoxBaseTrashHandler extends BaseTrashHandler {
 	@Override
 	public List<TrashRenderer> getTrashContainedModelTrashRenderers(
 			long classPK, int start, int end)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		List<TrashRenderer> trashRenderers = new ArrayList<TrashRenderer>();
 
 		List<Song> songs = SongLocalServiceUtil.getSongsByAlbumId(
-				classPK, start, end);
+			classPK, start, end);
 
 		for (Song song : songs) {
 			TrashHandler trashHandler =
@@ -129,7 +128,6 @@ public abstract class JukeBoxBaseTrashHandler extends BaseTrashHandler {
 		return true;
 	}
 
-	protected abstract long getGroupId(long classPK)
-		throws PortalException, SystemException;
+	protected abstract long getGroupId(long classPK) throws PortalException;
 
 }

@@ -1,6 +1,6 @@
 <%--
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="init.jsp" %>
+<%@ include file="./init.jsp" %>
 
 <liferay-util:body-bottom outputKey="jukebox-css">
 	<link href="<%= PortalUtil.getStaticResourceURL(request, PortalUtil.getPathContext() + "/jukebox-portlet/css/jukebox.css") %>" rel="stylesheet" type="text/css" />

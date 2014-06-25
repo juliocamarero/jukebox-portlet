@@ -1,6 +1,6 @@
 <%--
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -84,7 +84,7 @@ Indexer indexer = IndexerRegistryUtil.getIndexer("org.liferay.jukebox.model.Arti
 			%>
 
 			<li class="facet-value <%= (artistId == curArtistId) ? "current-term" : StringPool.BLANK %>">
-				<a data-value="<%= curArtistId %>" href="javascript:;"><img alt="" class="artist-search-result img-circle" src='<%= getImageURL(curArtistId, themeDisplay) %>' /><%= HtmlUtil.escape(artistName) %></a><c:if test="<%= showAssetCount %>"> <span class="frequency">(<%= termCollector.getFrequency() %>)</span></c:if>
+				<a data-value="<%= curArtistId %>" href="javascript:;"><img alt="" class="artist-search-result img-circle" src="<%= getImageURL(curArtistId, themeDisplay) %>" /><%= HtmlUtil.escape(artistName) %></a><c:if test="<%= showAssetCount %>"> <span class="frequency">(<%= termCollector.getFrequency() %>)</span></c:if>
 			</li>
 
 		<%

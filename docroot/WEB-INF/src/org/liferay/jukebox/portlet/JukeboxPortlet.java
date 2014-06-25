@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -94,7 +94,7 @@ public class JukeboxPortlet extends MVCPortlet {
 	}
 
 	public void addArtist(ActionRequest request, ActionResponse response)
-			throws Exception {
+		throws Exception {
 
 			UploadPortletRequest uploadPortletRequest =
 				PortalUtil.getUploadPortletRequest(request);
@@ -199,7 +199,7 @@ public class JukeboxPortlet extends MVCPortlet {
 		}
 
 	public void addSong(ActionRequest request, ActionResponse response)
-			throws Exception {
+		throws Exception {
 
 			UploadPortletRequest uploadPortletRequest =
 				PortalUtil.getUploadPortletRequest(request);
@@ -445,7 +445,7 @@ public class JukeboxPortlet extends MVCPortlet {
 			SessionMessages.add(request, "albumUpdated");
 
 			String redirect = ParamUtil.getString(
-					uploadPortletRequest, "redirect");
+				uploadPortletRequest, "redirect");
 
 				response.sendRedirect(redirect);
 		}

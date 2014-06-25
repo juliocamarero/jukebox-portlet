@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceContext;
@@ -50,7 +49,7 @@ public class AlbumServiceImpl extends AlbumServiceBaseImpl {
 	public Album addAlbum(
 			long artistId, String name, int year, InputStream inputStream,
 			ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		JukeBoxPermission.check(
 			getPermissionChecker(), serviceContext.getScopeGroupId(),
@@ -61,7 +60,7 @@ public class AlbumServiceImpl extends AlbumServiceBaseImpl {
 	}
 
 	public Album deleteAlbum(long albumId, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		AlbumPermission.check(
 			getPermissionChecker(), albumId, ActionKeys.DELETE);
@@ -69,55 +68,43 @@ public class AlbumServiceImpl extends AlbumServiceBaseImpl {
 		return albumLocalService.deleteAlbum(albumId);
 	}
 
-	public List<Album> getAlbums(long groupId) throws SystemException {
+	public List<Album> getAlbums(long groupId) {
 		return albumPersistence.filterFindByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Album> getAlbums(long groupId, int start, int end)
-		throws SystemException {
-
+	public List<Album> getAlbums(long groupId, int start, int end) {
 		return albumPersistence.filterFindByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED, start, end);
 	}
 
-	public List<Album> getAlbums(long groupId, String keywords)
-		throws SystemException {
-
+	public List<Album> getAlbums(long groupId, String keywords) {
 		return albumPersistence.filterFindByG_LikeN_S(
 			groupId, keywords, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public List<Album> getAlbumsByArtistId(long groupId, long artistId)
-		throws SystemException {
-
+	public List<Album> getAlbumsByArtistId(long groupId, long artistId) {
 		return albumPersistence.filterFindByG_A_S(
 			groupId, artistId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getAlbumsCount(long groupId) throws SystemException {
+	public int getAlbumsCount(long groupId) {
 		return albumPersistence.filterCountByG_S(
 			groupId, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getAlbumsCount(long groupId, String keywords)
-		throws SystemException {
-
+	public int getAlbumsCount(long groupId, String keywords) {
 		return albumPersistence.filterCountByG_LikeN_S(
 			groupId, keywords, WorkflowConstants.STATUS_APPROVED);
 	}
 
-	public int getAlbumsCountByArtistId(long groupId, long artistId)
-		throws SystemException {
-
+	public int getAlbumsCountByArtistId(long groupId, long artistId) {
 		return albumPersistence.filterCountByG_A_S(
 			groupId, artistId, WorkflowConstants.STATUS_APPROVED);
 	}
 
 	@Override
-	public Album moveAlbumToTrash(long albumId)
-		throws PortalException, SystemException {
-
+	public Album moveAlbumToTrash(long albumId) throws PortalException {
 		Album album = albumPersistence.findByPrimaryKey(albumId);
 
 		AlbumPermission.check(getPermissionChecker(), album, ActionKeys.DELETE);
@@ -126,9 +113,7 @@ public class AlbumServiceImpl extends AlbumServiceBaseImpl {
 	}
 
 	@Override
-	public Album restoreAlbumFromTrash(long albumId)
-		throws PortalException, SystemException {
-
+	public Album restoreAlbumFromTrash(long albumId) throws PortalException {
 		AlbumPermission.check(
 			getPermissionChecker(), albumId, ActionKeys.DELETE);
 
@@ -138,7 +123,7 @@ public class AlbumServiceImpl extends AlbumServiceBaseImpl {
 	public Album updateAlbum(
 			long albumId, long artistId, String name, int year,
 			InputStream inputStream, ServiceContext serviceContext)
-		throws PortalException, SystemException {
+		throws PortalException {
 
 		AlbumPermission.check(
 			getPermissionChecker(), albumId, ActionKeys.UPDATE);
