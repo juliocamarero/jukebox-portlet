@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -34,12 +34,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	*
 	* @param song the song
 	* @return the song that was added
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song addSong(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Song song) {
 		return _songLocalService.addSong(song);
 	}
 
@@ -60,7 +58,7 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param songId the primary key of the song
 	* @return the song that was removed
 	* @throws PortalException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song deleteSong(long songId)
@@ -74,12 +72,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	*
 	* @param song the song
 	* @return the song that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song deleteSong(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Song song) {
 		return _songLocalService.deleteSong(song);
 	}
 
@@ -93,13 +89,11 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		return _songLocalService.dynamicQuery(dynamicQuery);
 	}
 
@@ -114,13 +108,12 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param start the lower bound of the range of model instances
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		int end) {
 		return _songLocalService.dynamicQuery(dynamicQuery, start, end);
 	}
 
@@ -136,15 +129,13 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return _songLocalService.dynamicQuery(dynamicQuery, start, end,
 			orderByComparator);
 	}
@@ -154,12 +145,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		return _songLocalService.dynamicQueryCount(dynamicQuery);
 	}
 
@@ -169,19 +158,16 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param dynamicQuery the dynamic query
 	* @param projection the projection to apply to the query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.Projection projection) {
 		return _songLocalService.dynamicQueryCount(dynamicQuery, projection);
 	}
 
 	@Override
-	public org.liferay.jukebox.model.Song fetchSong(long songId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public org.liferay.jukebox.model.Song fetchSong(long songId) {
 		return _songLocalService.fetchSong(songId);
 	}
 
@@ -191,12 +177,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param uuid the song's UUID
 	* @param companyId the primary key of the company
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song fetchSongByUuidAndCompanyId(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long companyId) {
 		return _songLocalService.fetchSongByUuidAndCompanyId(uuid, companyId);
 	}
 
@@ -206,12 +190,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param uuid the song's UUID
 	* @param groupId the primary key of the group
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song fetchSongByUuidAndGroupId(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long groupId) {
 		return _songLocalService.fetchSongByUuidAndGroupId(uuid, groupId);
 	}
 
@@ -221,33 +203,38 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param songId the primary key of the song
 	* @return the song
 	* @throws PortalException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song getSong(long songId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return _songLocalService.getSong(songId);
 	}
 
 	@Override
-	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return _songLocalService.getActionableDynamicQuery();
 	}
 
 	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext) {
 		return _songLocalService.getExportActionableDynamicQuery(portletDataContext);
+	}
+
+	/**
+	* @throws PortalException
+	*/
+	@Override
+	public com.liferay.portal.model.PersistedModel deletePersistedModel(
+		com.liferay.portal.model.PersistedModel persistedModel)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _songLocalService.deletePersistedModel(persistedModel);
 	}
 
 	@Override
 	public com.liferay.portal.model.PersistedModel getPersistedModel(
 		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return _songLocalService.getPersistedModel(primaryKeyObj);
 	}
 
@@ -258,13 +245,11 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param companyId the primary key of the company
 	* @return the matching song
 	* @throws PortalException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song getSongByUuidAndCompanyId(
 		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return _songLocalService.getSongByUuidAndCompanyId(uuid, companyId);
 	}
 
@@ -275,13 +260,11 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param groupId the primary key of the group
 	* @return the matching song
 	* @throws PortalException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song getSongByUuidAndGroupId(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return _songLocalService.getSongByUuidAndGroupId(uuid, groupId);
 	}
 
@@ -295,11 +278,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of songs
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public java.util.List<org.liferay.jukebox.model.Song> getSongs(int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		int end) {
 		return _songLocalService.getSongs(start, end);
 	}
 
@@ -307,11 +289,9 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	* Returns the number of songs.
 	*
 	* @return the number of songs
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public int getSongsCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public int getSongsCount() {
 		return _songLocalService.getSongsCount();
 	}
 
@@ -320,12 +300,10 @@ public class SongLocalServiceWrapper implements SongLocalService,
 	*
 	* @param song the song
 	* @return the song that was updated
-	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public org.liferay.jukebox.model.Song updateSong(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Song song) {
 		return _songLocalService.updateSong(song);
 	}
 

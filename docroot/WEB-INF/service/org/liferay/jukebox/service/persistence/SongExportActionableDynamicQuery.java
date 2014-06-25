@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,7 +18,6 @@ import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.lar.ManifestSummary;
 import com.liferay.portal.kernel.lar.PortletDataContext;
@@ -38,7 +37,7 @@ import org.liferay.jukebox.model.Song;
 @Deprecated
 public class SongExportActionableDynamicQuery extends SongActionableDynamicQuery {
 	public SongExportActionableDynamicQuery(
-		PortletDataContext portletDataContext) throws SystemException {
+		PortletDataContext portletDataContext) {
 		_portletDataContext = portletDataContext;
 
 		setCompanyId(_portletDataContext.getCompanyId());
@@ -47,7 +46,7 @@ public class SongExportActionableDynamicQuery extends SongActionableDynamicQuery
 	}
 
 	@Override
-	public long performCount() throws PortalException, SystemException {
+	public long performCount() throws PortalException {
 		ManifestSummary manifestSummary = _portletDataContext.getManifestSummary();
 
 		StagedModelType stagedModelType = getStagedModelType();
@@ -84,9 +83,7 @@ public class SongExportActionableDynamicQuery extends SongActionableDynamicQuery
 	}
 
 	@Override
-	@SuppressWarnings("unused")
-	protected void performAction(Object object)
-		throws PortalException, SystemException {
+	protected void performAction(Object object) throws PortalException {
 		Song stagedModel = (Song)object;
 
 		StagedModelDataHandlerUtil.exportStagedModel(_portletDataContext,

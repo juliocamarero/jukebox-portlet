@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -92,11 +92,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param artist the artist
 	 * @return the artist that was added
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
-	public Artist addArtist(Artist artist) throws SystemException {
+	public Artist addArtist(Artist artist) {
 		artist.setNew(true);
 
 		return artistPersistence.update(artist);
@@ -119,7 +118,7 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param artistId the primary key of the artist
 	 * @return the artist that was removed
 	 * @throws PortalException if a artist with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
+	 * @throws SystemException
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
@@ -133,11 +132,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param artist the artist
 	 * @return the artist that was removed
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Artist deleteArtist(Artist artist) throws SystemException {
+	public Artist deleteArtist(Artist artist) {
 		return artistPersistence.remove(artist);
 	}
 
@@ -154,12 +152,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param dynamicQuery the dynamic query
 	 * @return the matching rows
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
+	public List dynamicQuery(DynamicQuery dynamicQuery) {
 		return artistPersistence.findWithDynamicQuery(dynamicQuery);
 	}
 
@@ -174,12 +170,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param start the lower bound of the range of model instances
 	 * @param end the upper bound of the range of model instances (not inclusive)
 	 * @return the range of matching rows
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
-		throws SystemException {
+	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end) {
 		return artistPersistence.findWithDynamicQuery(dynamicQuery, start, end);
 	}
 
@@ -195,12 +189,11 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param end the upper bound of the range of model instances (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching rows
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
 	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
-		OrderByComparator orderByComparator) throws SystemException {
+		OrderByComparator orderByComparator) {
 		return artistPersistence.findWithDynamicQuery(dynamicQuery, start, end,
 			orderByComparator);
 	}
@@ -210,11 +203,9 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param dynamicQuery the dynamic query
 	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public long dynamicQueryCount(DynamicQuery dynamicQuery)
-		throws SystemException {
+	public long dynamicQueryCount(DynamicQuery dynamicQuery) {
 		return artistPersistence.countWithDynamicQuery(dynamicQuery);
 	}
 
@@ -224,16 +215,15 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param dynamicQuery the dynamic query
 	 * @param projection the projection to apply to the query
 	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public long dynamicQueryCount(DynamicQuery dynamicQuery,
-		Projection projection) throws SystemException {
+		Projection projection) {
 		return artistPersistence.countWithDynamicQuery(dynamicQuery, projection);
 	}
 
 	@Override
-	public Artist fetchArtist(long artistId) throws SystemException {
+	public Artist fetchArtist(long artistId) {
 		return artistPersistence.fetchByPrimaryKey(artistId);
 	}
 
@@ -243,11 +233,9 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param uuid the artist's UUID
 	 * @param  companyId the primary key of the company
 	 * @return the matching artist, or <code>null</code> if a matching artist could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Artist fetchArtistByUuidAndCompanyId(String uuid, long companyId)
-		throws SystemException {
+	public Artist fetchArtistByUuidAndCompanyId(String uuid, long companyId) {
 		return artistPersistence.fetchByUuid_C_First(uuid, companyId, null);
 	}
 
@@ -257,11 +245,9 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param uuid the artist's UUID
 	 * @param groupId the primary key of the group
 	 * @return the matching artist, or <code>null</code> if a matching artist could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Artist fetchArtistByUuidAndGroupId(String uuid, long groupId)
-		throws SystemException {
+	public Artist fetchArtistByUuidAndGroupId(String uuid, long groupId) {
 		return artistPersistence.fetchByUUID_G(uuid, groupId);
 	}
 
@@ -271,17 +257,14 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param artistId the primary key of the artist
 	 * @return the artist
 	 * @throws PortalException if a artist with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Artist getArtist(long artistId)
-		throws PortalException, SystemException {
+	public Artist getArtist(long artistId) throws PortalException {
 		return artistPersistence.findByPrimaryKey(artistId);
 	}
 
 	@Override
-	public ActionableDynamicQuery getActionableDynamicQuery()
-		throws SystemException {
+	public ActionableDynamicQuery getActionableDynamicQuery() {
 		ActionableDynamicQuery actionableDynamicQuery = new DefaultActionableDynamicQuery();
 
 		actionableDynamicQuery.setBaseLocalService(org.liferay.jukebox.service.ArtistLocalServiceUtil.getService());
@@ -294,8 +277,7 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	protected void initActionableDynamicQuery(
-		ActionableDynamicQuery actionableDynamicQuery)
-		throws SystemException {
+		ActionableDynamicQuery actionableDynamicQuery) {
 		actionableDynamicQuery.setBaseLocalService(org.liferay.jukebox.service.ArtistLocalServiceUtil.getService());
 		actionableDynamicQuery.setClass(Artist.class);
 		actionableDynamicQuery.setClassLoader(getClassLoader());
@@ -305,11 +287,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 
 	@Override
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		final PortletDataContext portletDataContext) throws SystemException {
+		final PortletDataContext portletDataContext) {
 		final ExportActionableDynamicQuery exportActionableDynamicQuery = new ExportActionableDynamicQuery() {
 				@Override
-				public long performCount()
-					throws PortalException, SystemException {
+				public long performCount() throws PortalException {
 					ManifestSummary manifestSummary = portletDataContext.getManifestSummary();
 
 					StagedModelType stagedModelType = getStagedModelType();
@@ -353,9 +334,8 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 
 		exportActionableDynamicQuery.setPerformActionMethod(new ActionableDynamicQuery.PerformActionMethod() {
 				@Override
-				@SuppressWarnings("unused")
 				public void performAction(Object object)
-					throws PortalException, SystemException {
+					throws PortalException {
 					Artist stagedModel = (Artist)object;
 
 					StagedModelDataHandlerUtil.exportStagedModel(portletDataContext,
@@ -368,9 +348,18 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 		return exportActionableDynamicQuery;
 	}
 
+	/**
+	 * @throws PortalException
+	 */
+	@Override
+	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
+		throws PortalException {
+		return deleteArtist((Artist)persistedModel);
+	}
+
 	@Override
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
-		throws PortalException, SystemException {
+		throws PortalException {
 		return artistPersistence.findByPrimaryKey(primaryKeyObj);
 	}
 
@@ -381,11 +370,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param  companyId the primary key of the company
 	 * @return the matching artist
 	 * @throws PortalException if a matching artist could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public Artist getArtistByUuidAndCompanyId(String uuid, long companyId)
-		throws PortalException, SystemException {
+		throws PortalException {
 		return artistPersistence.findByUuid_C_First(uuid, companyId, null);
 	}
 
@@ -396,11 +384,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param groupId the primary key of the group
 	 * @return the matching artist
 	 * @throws PortalException if a matching artist could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public Artist getArtistByUuidAndGroupId(String uuid, long groupId)
-		throws PortalException, SystemException {
+		throws PortalException {
 		return artistPersistence.findByUUID_G(uuid, groupId);
 	}
 
@@ -414,11 +401,9 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param start the lower bound of the range of artists
 	 * @param end the upper bound of the range of artists (not inclusive)
 	 * @return the range of artists
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<Artist> getArtists(int start, int end)
-		throws SystemException {
+	public List<Artist> getArtists(int start, int end) {
 		return artistPersistence.findAll(start, end);
 	}
 
@@ -426,10 +411,9 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * Returns the number of artists.
 	 *
 	 * @return the number of artists
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int getArtistsCount() throws SystemException {
+	public int getArtistsCount() {
 		return artistPersistence.countAll();
 	}
 
@@ -438,11 +422,10 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param artist the artist
 	 * @return the artist that was updated
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
-	public Artist updateArtist(Artist artist) throws SystemException {
+	public Artist updateArtist(Artist artist) {
 		return artistPersistence.update(artist);
 	}
 
@@ -1211,7 +1194,7 @@ public abstract class ArtistLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param sql the sql query
 	 */
-	protected void runSQL(String sql) throws SystemException {
+	protected void runSQL(String sql) {
 		try {
 			DataSource dataSource = artistPersistence.getDataSource();
 

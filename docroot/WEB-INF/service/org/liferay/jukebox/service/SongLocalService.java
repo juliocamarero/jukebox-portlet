@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -50,11 +50,9 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	*
 	* @param song the song
 	* @return the song that was added
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Song addSong(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		org.liferay.jukebox.model.Song song);
 
 	/**
 	* Creates a new song with the primary key. Does not add the song to the database.
@@ -70,7 +68,7 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param songId the primary key of the song
 	* @return the song that was removed
 	* @throws PortalException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
 	*/
 	public org.liferay.jukebox.model.Song deleteSong(long songId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -81,11 +79,9 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	*
 	* @param song the song
 	* @return the song that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Song deleteSong(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		org.liferay.jukebox.model.Song song);
 
 	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery();
 
@@ -94,12 +90,10 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery);
 
 	/**
 	* Performs a dynamic query on the database and returns a range of the matching rows.
@@ -112,12 +106,11 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param start the lower bound of the range of model instances
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException;
+		int end);
 
 	/**
 	* Performs a dynamic query on the database and returns an ordered range of the matching rows.
@@ -131,25 +124,21 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the number of rows that match the dynamic query.
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	public long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery);
 
 	/**
 	* Returns the number of rows that match the dynamic query.
@@ -157,16 +146,13 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param dynamicQuery the dynamic query
 	* @param projection the projection to apply to the query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	public long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.dao.orm.Projection projection);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public org.liferay.jukebox.model.Song fetchSong(long songId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public org.liferay.jukebox.model.Song fetchSong(long songId);
 
 	/**
 	* Returns the song with the matching UUID and company.
@@ -174,12 +160,10 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param uuid the song's UUID
 	* @param companyId the primary key of the company
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public org.liferay.jukebox.model.Song fetchSongByUuidAndCompanyId(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, long companyId);
 
 	/**
 	* Returns the song matching the UUID and group.
@@ -187,12 +171,10 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param uuid the song's UUID
 	* @param groupId the primary key of the group
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public org.liferay.jukebox.model.Song fetchSongByUuidAndGroupId(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, long groupId);
 
 	/**
 	* Returns the song with the primary key.
@@ -200,28 +182,31 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param songId the primary key of the song
 	* @return the song
 	* @throws PortalException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public org.liferay.jukebox.model.Song getSong(long songId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext);
+
+	/**
+	* @throws PortalException
+	*/
+	@Override
+	public com.liferay.portal.model.PersistedModel deletePersistedModel(
+		com.liferay.portal.model.PersistedModel persistedModel)
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	@Override
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.PersistedModel getPersistedModel(
 		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
 	* Returns the song with the matching UUID and company.
@@ -230,13 +215,11 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param companyId the primary key of the company
 	* @return the matching song
 	* @throws PortalException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public org.liferay.jukebox.model.Song getSongByUuidAndCompanyId(
 		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
 	* Returns the song matching the UUID and group.
@@ -245,13 +228,11 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param groupId the primary key of the group
 	* @return the matching song
 	* @throws PortalException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public org.liferay.jukebox.model.Song getSongByUuidAndGroupId(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+		throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
 	* Returns a range of all the songs.
@@ -263,32 +244,27 @@ public interface SongLocalService extends BaseLocalService, InvokableLocalServic
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of songs
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public java.util.List<org.liferay.jukebox.model.Song> getSongs(int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException;
+		int end);
 
 	/**
 	* Returns the number of songs.
 	*
 	* @return the number of songs
-	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getSongsCount()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int getSongsCount();
 
 	/**
 	* Updates the song in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
 	* @param song the song
 	* @return the song that was updated
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Song updateSong(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		org.liferay.jukebox.model.Song song);
 
 	/**
 	* Returns the Spring bean ID for this bean.

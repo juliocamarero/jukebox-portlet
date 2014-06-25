@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -42,11 +42,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	*
 	* @param uuid the uuid
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUuid(
-		java.lang.String uuid)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid);
 
 	/**
 	* Returns a range of all the artists where uuid = &#63;.
@@ -59,11 +57,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUuid(
-		java.lang.String uuid, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where uuid = &#63;.
@@ -77,12 +73,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUuid(
 		java.lang.String uuid, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where uuid = &#63;.
@@ -91,13 +85,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUuid_First(
 		java.lang.String uuid,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where uuid = &#63;.
@@ -105,12 +97,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUuid_First(
 		java.lang.String uuid,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where uuid = &#63;.
@@ -119,13 +109,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUuid_Last(
 		java.lang.String uuid,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where uuid = &#63;.
@@ -133,12 +121,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUuid_Last(
 		java.lang.String uuid,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where uuid = &#63;.
@@ -148,32 +134,26 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByUuid_PrevAndNext(
 		long artistId, java.lang.String uuid,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where uuid = &#63; from the database.
 	*
 	* @param uuid the uuid
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByUuid(java.lang.String uuid)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByUuid(java.lang.String uuid);
 
 	/**
 	* Returns the number of artists where uuid = &#63;.
 	*
 	* @param uuid the uuid
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByUuid(java.lang.String uuid)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByUuid(java.lang.String uuid);
 
 	/**
 	* Returns the artist where uuid = &#63; and groupId = &#63; or throws a {@link org.liferay.jukebox.NoSuchArtistException} if it could not be found.
@@ -182,12 +162,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @return the matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUUID_G(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the artist where uuid = &#63; and groupId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
@@ -195,11 +173,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param groupId the group ID
 	* @return the matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUUID_G(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, long groupId);
 
 	/**
 	* Returns the artist where uuid = &#63; and groupId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
@@ -208,11 +184,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param retrieveFromCache whether to use the finder cache
 	* @return the matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUUID_G(
-		java.lang.String uuid, long groupId, boolean retrieveFromCache)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, long groupId, boolean retrieveFromCache);
 
 	/**
 	* Removes the artist where uuid = &#63; and groupId = &#63; from the database.
@@ -220,12 +194,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param groupId the group ID
 	* @return the artist that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist removeByUUID_G(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the number of artists where uuid = &#63; and groupId = &#63;.
@@ -233,10 +205,8 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param groupId the group ID
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByUUID_G(java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByUUID_G(java.lang.String uuid, long groupId);
 
 	/**
 	* Returns all the artists where uuid = &#63; and companyId = &#63;.
@@ -244,11 +214,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param companyId the company ID
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUuid_C(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, long companyId);
 
 	/**
 	* Returns a range of all the artists where uuid = &#63; and companyId = &#63;.
@@ -262,11 +230,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUuid_C(
-		java.lang.String uuid, long companyId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		java.lang.String uuid, long companyId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where uuid = &#63; and companyId = &#63;.
@@ -281,12 +247,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUuid_C(
 		java.lang.String uuid, long companyId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where uuid = &#63; and companyId = &#63;.
@@ -296,13 +260,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUuid_C_First(
 		java.lang.String uuid, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where uuid = &#63; and companyId = &#63;.
@@ -311,12 +273,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUuid_C_First(
 		java.lang.String uuid, long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where uuid = &#63; and companyId = &#63;.
@@ -326,13 +286,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUuid_C_Last(
 		java.lang.String uuid, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where uuid = &#63; and companyId = &#63;.
@@ -341,12 +299,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUuid_C_Last(
 		java.lang.String uuid, long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where uuid = &#63; and companyId = &#63;.
@@ -357,23 +313,19 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByUuid_C_PrevAndNext(
 		long artistId, java.lang.String uuid, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where uuid = &#63; and companyId = &#63; from the database.
 	*
 	* @param uuid the uuid
 	* @param companyId the company ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByUuid_C(java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByUuid_C(java.lang.String uuid, long companyId);
 
 	/**
 	* Returns the number of artists where uuid = &#63; and companyId = &#63;.
@@ -381,21 +333,17 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param uuid the uuid
 	* @param companyId the company ID
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByUuid_C(java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByUuid_C(java.lang.String uuid, long companyId);
 
 	/**
 	* Returns all the artists where groupId = &#63;.
 	*
 	* @param groupId the group ID
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByGroupId(
-		long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId);
 
 	/**
 	* Returns a range of all the artists where groupId = &#63;.
@@ -408,11 +356,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByGroupId(
-		long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where groupId = &#63;.
@@ -426,12 +372,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByGroupId(
 		long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where groupId = &#63;.
@@ -440,12 +384,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByGroupId_First(long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where groupId = &#63;.
@@ -453,11 +395,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByGroupId_First(long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where groupId = &#63;.
@@ -466,12 +406,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByGroupId_Last(long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where groupId = &#63;.
@@ -479,11 +417,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByGroupId_Last(long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where groupId = &#63;.
@@ -493,24 +429,20 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByGroupId_PrevAndNext(
 		long artistId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns all the artists that the user has permission to view where groupId = &#63;.
 	*
 	* @param groupId the group ID
 	* @return the matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByGroupId(
-		long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId);
 
 	/**
 	* Returns a range of all the artists that the user has permission to view where groupId = &#63;.
@@ -523,11 +455,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByGroupId(
-		long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists that the user has permissions to view where groupId = &#63;.
@@ -541,12 +471,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByGroupId(
 		long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set of artists that the user has permission to view where groupId = &#63;.
@@ -556,52 +484,43 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] filterFindByGroupId_PrevAndNext(
 		long artistId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where groupId = &#63; from the database.
 	*
 	* @param groupId the group ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByGroupId(long groupId);
 
 	/**
 	* Returns the number of artists where groupId = &#63;.
 	*
 	* @param groupId the group ID
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByGroupId(long groupId);
 
 	/**
 	* Returns the number of artists that the user has permission to view where groupId = &#63;.
 	*
 	* @param groupId the group ID
 	* @return the number of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public int filterCountByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int filterCountByGroupId(long groupId);
 
 	/**
 	* Returns all the artists where userId = &#63;.
 	*
 	* @param userId the user ID
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUserId(
-		long userId) throws com.liferay.portal.kernel.exception.SystemException;
+		long userId);
 
 	/**
 	* Returns a range of all the artists where userId = &#63;.
@@ -614,11 +533,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUserId(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long userId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where userId = &#63;.
@@ -632,12 +549,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByUserId(
 		long userId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where userId = &#63;.
@@ -646,12 +561,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUserId_First(long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where userId = &#63;.
@@ -659,11 +572,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param userId the user ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUserId_First(long userId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where userId = &#63;.
@@ -672,12 +583,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByUserId_Last(long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where userId = &#63;.
@@ -685,11 +594,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param userId the user ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByUserId_Last(long userId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where userId = &#63;.
@@ -699,43 +606,35 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByUserId_PrevAndNext(
 		long artistId, long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where userId = &#63; from the database.
 	*
 	* @param userId the user ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByUserId(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByUserId(long userId);
 
 	/**
 	* Returns the number of artists where userId = &#63;.
 	*
 	* @param userId the user ID
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByUserId(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByUserId(long userId);
 
 	/**
 	* Returns all the artists where companyId = &#63;.
 	*
 	* @param companyId the company ID
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByCompanyId(
-		long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long companyId);
 
 	/**
 	* Returns a range of all the artists where companyId = &#63;.
@@ -748,11 +647,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByCompanyId(
-		long companyId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long companyId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where companyId = &#63;.
@@ -766,12 +663,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByCompanyId(
 		long companyId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where companyId = &#63;.
@@ -780,13 +675,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByCompanyId_First(
 		long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where companyId = &#63;.
@@ -794,12 +687,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByCompanyId_First(
 		long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where companyId = &#63;.
@@ -808,13 +699,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByCompanyId_Last(
 		long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where companyId = &#63;.
@@ -822,12 +711,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByCompanyId_Last(
 		long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where companyId = &#63;.
@@ -837,32 +724,26 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByCompanyId_PrevAndNext(
 		long artistId, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where companyId = &#63; from the database.
 	*
 	* @param companyId the company ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByCompanyId(long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByCompanyId(long companyId);
 
 	/**
 	* Returns the number of artists where companyId = &#63;.
 	*
 	* @param companyId the company ID
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByCompanyId(long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByCompanyId(long companyId);
 
 	/**
 	* Returns all the artists where userId = &#63; and groupId = &#63;.
@@ -870,11 +751,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param userId the user ID
 	* @param groupId the group ID
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByU_G(
-		long userId, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long userId, long groupId);
 
 	/**
 	* Returns a range of all the artists where userId = &#63; and groupId = &#63;.
@@ -888,11 +767,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByU_G(
-		long userId, long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long userId, long groupId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where userId = &#63; and groupId = &#63;.
@@ -907,12 +784,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByU_G(
 		long userId, long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where userId = &#63; and groupId = &#63;.
@@ -922,13 +797,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByU_G_First(long userId,
 		long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where userId = &#63; and groupId = &#63;.
@@ -937,12 +810,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByU_G_First(long userId,
 		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where userId = &#63; and groupId = &#63;.
@@ -952,13 +823,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByU_G_Last(long userId,
 		long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where userId = &#63; and groupId = &#63;.
@@ -967,12 +836,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByU_G_Last(long userId,
 		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where userId = &#63; and groupId = &#63;.
@@ -983,13 +850,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByU_G_PrevAndNext(
 		long artistId, long userId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns all the artists that the user has permission to view where userId = &#63; and groupId = &#63;.
@@ -997,11 +862,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param userId the user ID
 	* @param groupId the group ID
 	* @return the matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByU_G(
-		long userId, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long userId, long groupId);
 
 	/**
 	* Returns a range of all the artists that the user has permission to view where userId = &#63; and groupId = &#63;.
@@ -1015,11 +878,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByU_G(
-		long userId, long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long userId, long groupId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists that the user has permissions to view where userId = &#63; and groupId = &#63;.
@@ -1034,12 +895,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByU_G(
 		long userId, long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set of artists that the user has permission to view where userId = &#63; and groupId = &#63;.
@@ -1050,23 +909,19 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] filterFindByU_G_PrevAndNext(
 		long artistId, long userId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where userId = &#63; and groupId = &#63; from the database.
 	*
 	* @param userId the user ID
 	* @param groupId the group ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByU_G(long userId, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByU_G(long userId, long groupId);
 
 	/**
 	* Returns the number of artists where userId = &#63; and groupId = &#63;.
@@ -1074,10 +929,8 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param userId the user ID
 	* @param groupId the group ID
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByU_G(long userId, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByU_G(long userId, long groupId);
 
 	/**
 	* Returns the number of artists that the user has permission to view where userId = &#63; and groupId = &#63;.
@@ -1085,10 +938,8 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param userId the user ID
 	* @param groupId the group ID
 	* @return the number of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public int filterCountByU_G(long userId, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int filterCountByU_G(long userId, long groupId);
 
 	/**
 	* Returns all the artists where groupId = &#63; and status = &#63;.
@@ -1096,11 +947,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByG_S(
-		long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, int status);
 
 	/**
 	* Returns a range of all the artists where groupId = &#63; and status = &#63;.
@@ -1114,11 +963,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByG_S(
-		long groupId, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, int status, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where groupId = &#63; and status = &#63;.
@@ -1133,12 +980,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByG_S(
 		long groupId, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where groupId = &#63; and status = &#63;.
@@ -1148,13 +993,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByG_S_First(long groupId,
 		int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where groupId = &#63; and status = &#63;.
@@ -1163,12 +1006,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByG_S_First(long groupId,
 		int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where groupId = &#63; and status = &#63;.
@@ -1178,13 +1019,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByG_S_Last(long groupId,
 		int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where groupId = &#63; and status = &#63;.
@@ -1193,12 +1032,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByG_S_Last(long groupId,
 		int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where groupId = &#63; and status = &#63;.
@@ -1209,13 +1046,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByG_S_PrevAndNext(
 		long artistId, long groupId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns all the artists that the user has permission to view where groupId = &#63; and status = &#63;.
@@ -1223,11 +1058,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByG_S(
-		long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, int status);
 
 	/**
 	* Returns a range of all the artists that the user has permission to view where groupId = &#63; and status = &#63;.
@@ -1241,11 +1074,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByG_S(
-		long groupId, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, int status, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists that the user has permissions to view where groupId = &#63; and status = &#63;.
@@ -1260,12 +1091,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByG_S(
 		long groupId, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set of artists that the user has permission to view where groupId = &#63; and status = &#63;.
@@ -1276,23 +1105,19 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] filterFindByG_S_PrevAndNext(
 		long artistId, long groupId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where groupId = &#63; and status = &#63; from the database.
 	*
 	* @param groupId the group ID
 	* @param status the status
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByG_S(long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeByG_S(long groupId, int status);
 
 	/**
 	* Returns the number of artists where groupId = &#63; and status = &#63;.
@@ -1300,10 +1125,8 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByG_S(long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByG_S(long groupId, int status);
 
 	/**
 	* Returns the number of artists that the user has permission to view where groupId = &#63; and status = &#63;.
@@ -1311,10 +1134,8 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the number of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public int filterCountByG_S(long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int filterCountByG_S(long groupId, int status);
 
 	/**
 	* Returns all the artists where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1323,11 +1144,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param name the name
 	* @param status the status
 	* @return the matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByG_LikeN_S(
-		long groupId, java.lang.String name, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, java.lang.String name, int status);
 
 	/**
 	* Returns a range of all the artists where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1342,11 +1161,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByG_LikeN_S(
-		long groupId, java.lang.String name, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, java.lang.String name, int status, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1362,12 +1179,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findByG_LikeN_S(
 		long groupId, java.lang.String name, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the first artist in the ordered set where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1378,13 +1193,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByG_LikeN_S_First(
 		long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the first artist in the ordered set where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1394,12 +1207,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByG_LikeN_S_First(
 		long groupId, java.lang.String name, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the last artist in the ordered set where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1410,13 +1221,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByG_LikeN_S_Last(long groupId,
 		java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the last artist in the ordered set where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1426,12 +1235,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist fetchByG_LikeN_S_Last(
 		long groupId, java.lang.String name, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1443,13 +1250,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] findByG_LikeN_S_PrevAndNext(
 		long artistId, long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns all the artists that the user has permission to view where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1458,11 +1263,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param name the name
 	* @param status the status
 	* @return the matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByG_LikeN_S(
-		long groupId, java.lang.String name, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, java.lang.String name, int status);
 
 	/**
 	* Returns a range of all the artists that the user has permission to view where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1477,11 +1280,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByG_LikeN_S(
-		long groupId, java.lang.String name, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		long groupId, java.lang.String name, int status, int start, int end);
 
 	/**
 	* Returns an ordered range of all the artists that the user has permissions to view where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1497,12 +1298,10 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> filterFindByG_LikeN_S(
 		long groupId, java.lang.String name, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Returns the artists before and after the current artist in the ordered set of artists that the user has permission to view where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1514,13 +1313,11 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist[] filterFindByG_LikeN_S_PrevAndNext(
 		long artistId, long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Removes all the artists where groupId = &#63; and name LIKE &#63; and status = &#63; from the database.
@@ -1528,10 +1325,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param groupId the group ID
 	* @param name the name
 	* @param status the status
-	* @throws SystemException if a system exception occurred
 	*/
 	public void removeByG_LikeN_S(long groupId, java.lang.String name,
-		int status) throws com.liferay.portal.kernel.exception.SystemException;
+		int status);
 
 	/**
 	* Returns the number of artists where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1540,10 +1336,8 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param name the name
 	* @param status the status
 	* @return the number of matching artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countByG_LikeN_S(long groupId, java.lang.String name, int status)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByG_LikeN_S(long groupId, java.lang.String name, int status);
 
 	/**
 	* Returns the number of artists that the user has permission to view where groupId = &#63; and name LIKE &#63; and status = &#63;.
@@ -1552,10 +1346,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param name the name
 	* @param status the status
 	* @return the number of matching artists that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public int filterCountByG_LikeN_S(long groupId, java.lang.String name,
-		int status) throws com.liferay.portal.kernel.exception.SystemException;
+		int status);
 
 	/**
 	* Caches the artist in the entity cache if it is enabled.
@@ -1586,15 +1379,12 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param artistId the primary key of the artist
 	* @return the artist that was removed
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist remove(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	public org.liferay.jukebox.model.Artist updateImpl(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		org.liferay.jukebox.model.Artist artist);
 
 	/**
 	* Returns the artist with the primary key or throws a {@link org.liferay.jukebox.NoSuchArtistException} if it could not be found.
@@ -1602,30 +1392,28 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param artistId the primary key of the artist
 	* @return the artist
 	* @throws org.liferay.jukebox.NoSuchArtistException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public org.liferay.jukebox.model.Artist findByPrimaryKey(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchArtistException;
+		throws org.liferay.jukebox.NoSuchArtistException;
 
 	/**
 	* Returns the artist with the primary key or returns <code>null</code> if it could not be found.
 	*
 	* @param artistId the primary key of the artist
 	* @return the artist, or <code>null</code> if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
-	public org.liferay.jukebox.model.Artist fetchByPrimaryKey(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public org.liferay.jukebox.model.Artist fetchByPrimaryKey(long artistId);
+
+	@Override
+	public java.util.Map<java.io.Serializable, org.liferay.jukebox.model.Artist> fetchByPrimaryKeys(
+		java.util.Set<java.io.Serializable> primaryKeys);
 
 	/**
 	* Returns all the artists.
 	*
 	* @return the artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<org.liferay.jukebox.model.Artist> findAll()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public java.util.List<org.liferay.jukebox.model.Artist> findAll();
 
 	/**
 	* Returns a range of all the artists.
@@ -1637,10 +1425,9 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findAll(int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException;
+		int end);
 
 	/**
 	* Returns an ordered range of all the artists.
@@ -1653,27 +1440,20 @@ public interface ArtistPersistence extends BasePersistence<Artist> {
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<org.liferay.jukebox.model.Artist> findAll(int start,
 		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator);
 
 	/**
 	* Removes all the artists from the database.
-	*
-	* @throws SystemException if a system exception occurred
 	*/
-	public void removeAll()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public void removeAll();
 
 	/**
 	* Returns the number of artists.
 	*
 	* @return the number of artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public int countAll()
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countAll();
 }

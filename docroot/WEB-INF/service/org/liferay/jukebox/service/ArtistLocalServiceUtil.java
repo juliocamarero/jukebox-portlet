@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -44,11 +44,9 @@ public class ArtistLocalServiceUtil {
 	*
 	* @param artist the artist
 	* @return the artist that was added
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist addArtist(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Artist artist) {
 		return getService().addArtist(artist);
 	}
 
@@ -68,7 +66,7 @@ public class ArtistLocalServiceUtil {
 	* @param artistId the primary key of the artist
 	* @return the artist that was removed
 	* @throws PortalException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
 	*/
 	public static org.liferay.jukebox.model.Artist deleteArtist(long artistId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -81,11 +79,9 @@ public class ArtistLocalServiceUtil {
 	*
 	* @param artist the artist
 	* @return the artist that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist deleteArtist(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Artist artist) {
 		return getService().deleteArtist(artist);
 	}
 
@@ -98,12 +94,10 @@ public class ArtistLocalServiceUtil {
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		return getService().dynamicQuery(dynamicQuery);
 	}
 
@@ -118,12 +112,11 @@ public class ArtistLocalServiceUtil {
 	* @param start the lower bound of the range of model instances
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public static java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		int end) {
 		return getService().dynamicQuery(dynamicQuery, start, end);
 	}
 
@@ -139,14 +132,12 @@ public class ArtistLocalServiceUtil {
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public static java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
@@ -156,11 +147,9 @@ public class ArtistLocalServiceUtil {
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	public static long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		return getService().dynamicQueryCount(dynamicQuery);
 	}
 
@@ -170,17 +159,14 @@ public class ArtistLocalServiceUtil {
 	* @param dynamicQuery the dynamic query
 	* @param projection the projection to apply to the query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	public static long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.Projection projection) {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static org.liferay.jukebox.model.Artist fetchArtist(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static org.liferay.jukebox.model.Artist fetchArtist(long artistId) {
 		return getService().fetchArtist(artistId);
 	}
 
@@ -190,11 +176,9 @@ public class ArtistLocalServiceUtil {
 	* @param uuid the artist's UUID
 	* @param companyId the primary key of the company
 	* @return the matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist fetchArtistByUuidAndCompanyId(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long companyId) {
 		return getService().fetchArtistByUuidAndCompanyId(uuid, companyId);
 	}
 
@@ -204,11 +188,9 @@ public class ArtistLocalServiceUtil {
 	* @param uuid the artist's UUID
 	* @param groupId the primary key of the group
 	* @return the matching artist, or <code>null</code> if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist fetchArtistByUuidAndGroupId(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long groupId) {
 		return getService().fetchArtistByUuidAndGroupId(uuid, groupId);
 	}
 
@@ -218,29 +200,33 @@ public class ArtistLocalServiceUtil {
 	* @param artistId the primary key of the artist
 	* @return the artist
 	* @throws PortalException if a artist with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist getArtist(long artistId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getArtist(artistId);
 	}
 
-	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return getService().getActionableDynamicQuery();
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext) {
 		return getService().getExportActionableDynamicQuery(portletDataContext);
+	}
+
+	/**
+	* @throws PortalException
+	*/
+	public static com.liferay.portal.model.PersistedModel deletePersistedModel(
+		com.liferay.portal.model.PersistedModel persistedModel)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService().deletePersistedModel(persistedModel);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(
 		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
@@ -251,12 +237,10 @@ public class ArtistLocalServiceUtil {
 	* @param companyId the primary key of the company
 	* @return the matching artist
 	* @throws PortalException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist getArtistByUuidAndCompanyId(
 		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getArtistByUuidAndCompanyId(uuid, companyId);
 	}
 
@@ -267,12 +251,10 @@ public class ArtistLocalServiceUtil {
 	* @param groupId the primary key of the group
 	* @return the matching artist
 	* @throws PortalException if a matching artist could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist getArtistByUuidAndGroupId(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getArtistByUuidAndGroupId(uuid, groupId);
 	}
 
@@ -286,11 +268,9 @@ public class ArtistLocalServiceUtil {
 	* @param start the lower bound of the range of artists
 	* @param end the upper bound of the range of artists (not inclusive)
 	* @return the range of artists
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Artist> getArtists(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		int start, int end) {
 		return getService().getArtists(start, end);
 	}
 
@@ -298,10 +278,8 @@ public class ArtistLocalServiceUtil {
 	* Returns the number of artists.
 	*
 	* @return the number of artists
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int getArtistsCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int getArtistsCount() {
 		return getService().getArtistsCount();
 	}
 
@@ -310,11 +288,9 @@ public class ArtistLocalServiceUtil {
 	*
 	* @param artist the artist
 	* @return the artist that was updated
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Artist updateArtist(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Artist artist) {
 		return getService().updateArtist(artist);
 	}
 

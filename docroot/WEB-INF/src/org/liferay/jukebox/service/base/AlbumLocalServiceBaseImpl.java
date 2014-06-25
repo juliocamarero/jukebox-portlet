@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -94,11 +94,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param album the album
 	 * @return the album that was added
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
-	public Album addAlbum(Album album) throws SystemException {
+	public Album addAlbum(Album album) {
 		album.setNew(true);
 
 		return albumPersistence.update(album);
@@ -121,7 +120,7 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param albumId the primary key of the album
 	 * @return the album that was removed
 	 * @throws PortalException if a album with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
+	 * @throws SystemException
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
@@ -135,11 +134,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param album the album
 	 * @return the album that was removed
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Album deleteAlbum(Album album) throws SystemException {
+	public Album deleteAlbum(Album album) {
 		return albumPersistence.remove(album);
 	}
 
@@ -156,12 +154,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param dynamicQuery the dynamic query
 	 * @return the matching rows
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
+	public List dynamicQuery(DynamicQuery dynamicQuery) {
 		return albumPersistence.findWithDynamicQuery(dynamicQuery);
 	}
 
@@ -176,12 +172,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param start the lower bound of the range of model instances
 	 * @param end the upper bound of the range of model instances (not inclusive)
 	 * @return the range of matching rows
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
-		throws SystemException {
+	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end) {
 		return albumPersistence.findWithDynamicQuery(dynamicQuery, start, end);
 	}
 
@@ -197,12 +191,11 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param end the upper bound of the range of model instances (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching rows
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
 	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
-		OrderByComparator orderByComparator) throws SystemException {
+		OrderByComparator orderByComparator) {
 		return albumPersistence.findWithDynamicQuery(dynamicQuery, start, end,
 			orderByComparator);
 	}
@@ -212,11 +205,9 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param dynamicQuery the dynamic query
 	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public long dynamicQueryCount(DynamicQuery dynamicQuery)
-		throws SystemException {
+	public long dynamicQueryCount(DynamicQuery dynamicQuery) {
 		return albumPersistence.countWithDynamicQuery(dynamicQuery);
 	}
 
@@ -226,16 +217,15 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param dynamicQuery the dynamic query
 	 * @param projection the projection to apply to the query
 	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public long dynamicQueryCount(DynamicQuery dynamicQuery,
-		Projection projection) throws SystemException {
+		Projection projection) {
 		return albumPersistence.countWithDynamicQuery(dynamicQuery, projection);
 	}
 
 	@Override
-	public Album fetchAlbum(long albumId) throws SystemException {
+	public Album fetchAlbum(long albumId) {
 		return albumPersistence.fetchByPrimaryKey(albumId);
 	}
 
@@ -245,11 +235,9 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param uuid the album's UUID
 	 * @param  companyId the primary key of the company
 	 * @return the matching album, or <code>null</code> if a matching album could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Album fetchAlbumByUuidAndCompanyId(String uuid, long companyId)
-		throws SystemException {
+	public Album fetchAlbumByUuidAndCompanyId(String uuid, long companyId) {
 		return albumPersistence.fetchByUuid_C_First(uuid, companyId, null);
 	}
 
@@ -259,11 +247,9 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param uuid the album's UUID
 	 * @param groupId the primary key of the group
 	 * @return the matching album, or <code>null</code> if a matching album could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Album fetchAlbumByUuidAndGroupId(String uuid, long groupId)
-		throws SystemException {
+	public Album fetchAlbumByUuidAndGroupId(String uuid, long groupId) {
 		return albumPersistence.fetchByUUID_G(uuid, groupId);
 	}
 
@@ -273,16 +259,14 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param albumId the primary key of the album
 	 * @return the album
 	 * @throws PortalException if a album with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Album getAlbum(long albumId) throws PortalException, SystemException {
+	public Album getAlbum(long albumId) throws PortalException {
 		return albumPersistence.findByPrimaryKey(albumId);
 	}
 
 	@Override
-	public ActionableDynamicQuery getActionableDynamicQuery()
-		throws SystemException {
+	public ActionableDynamicQuery getActionableDynamicQuery() {
 		ActionableDynamicQuery actionableDynamicQuery = new DefaultActionableDynamicQuery();
 
 		actionableDynamicQuery.setBaseLocalService(org.liferay.jukebox.service.AlbumLocalServiceUtil.getService());
@@ -295,8 +279,7 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	protected void initActionableDynamicQuery(
-		ActionableDynamicQuery actionableDynamicQuery)
-		throws SystemException {
+		ActionableDynamicQuery actionableDynamicQuery) {
 		actionableDynamicQuery.setBaseLocalService(org.liferay.jukebox.service.AlbumLocalServiceUtil.getService());
 		actionableDynamicQuery.setClass(Album.class);
 		actionableDynamicQuery.setClassLoader(getClassLoader());
@@ -306,11 +289,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 
 	@Override
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		final PortletDataContext portletDataContext) throws SystemException {
+		final PortletDataContext portletDataContext) {
 		final ExportActionableDynamicQuery exportActionableDynamicQuery = new ExportActionableDynamicQuery() {
 				@Override
-				public long performCount()
-					throws PortalException, SystemException {
+				public long performCount() throws PortalException {
 					ManifestSummary manifestSummary = portletDataContext.getManifestSummary();
 
 					StagedModelType stagedModelType = getStagedModelType();
@@ -354,9 +336,8 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 
 		exportActionableDynamicQuery.setPerformActionMethod(new ActionableDynamicQuery.PerformActionMethod() {
 				@Override
-				@SuppressWarnings("unused")
 				public void performAction(Object object)
-					throws PortalException, SystemException {
+					throws PortalException {
 					Album stagedModel = (Album)object;
 
 					StagedModelDataHandlerUtil.exportStagedModel(portletDataContext,
@@ -369,9 +350,18 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 		return exportActionableDynamicQuery;
 	}
 
+	/**
+	 * @throws PortalException
+	 */
+	@Override
+	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
+		throws PortalException {
+		return deleteAlbum((Album)persistedModel);
+	}
+
 	@Override
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
-		throws PortalException, SystemException {
+		throws PortalException {
 		return albumPersistence.findByPrimaryKey(primaryKeyObj);
 	}
 
@@ -382,11 +372,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param  companyId the primary key of the company
 	 * @return the matching album
 	 * @throws PortalException if a matching album could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public Album getAlbumByUuidAndCompanyId(String uuid, long companyId)
-		throws PortalException, SystemException {
+		throws PortalException {
 		return albumPersistence.findByUuid_C_First(uuid, companyId, null);
 	}
 
@@ -397,11 +386,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param groupId the primary key of the group
 	 * @return the matching album
 	 * @throws PortalException if a matching album could not be found
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public Album getAlbumByUuidAndGroupId(String uuid, long groupId)
-		throws PortalException, SystemException {
+		throws PortalException {
 		return albumPersistence.findByUUID_G(uuid, groupId);
 	}
 
@@ -415,10 +403,9 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @param start the lower bound of the range of albums
 	 * @param end the upper bound of the range of albums (not inclusive)
 	 * @return the range of albums
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<Album> getAlbums(int start, int end) throws SystemException {
+	public List<Album> getAlbums(int start, int end) {
 		return albumPersistence.findAll(start, end);
 	}
 
@@ -426,10 +413,9 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * Returns the number of albums.
 	 *
 	 * @return the number of albums
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int getAlbumsCount() throws SystemException {
+	public int getAlbumsCount() {
 		return albumPersistence.countAll();
 	}
 
@@ -438,11 +424,10 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param album the album
 	 * @return the album that was updated
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
-	public Album updateAlbum(Album album) throws SystemException {
+	public Album updateAlbum(Album album) {
 		return albumPersistence.update(album);
 	}
 
@@ -1306,7 +1291,7 @@ public abstract class AlbumLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param sql the sql query
 	 */
-	protected void runSQL(String sql) throws SystemException {
+	protected void runSQL(String sql) {
 		try {
 			DataSource dataSource = albumPersistence.getDataSource();
 

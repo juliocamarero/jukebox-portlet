@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,7 +15,6 @@
 package org.liferay.jukebox.service.persistence;
 
 import com.liferay.portal.kernel.dao.orm.BaseActionableDynamicQuery;
-import com.liferay.portal.kernel.exception.SystemException;
 
 import org.liferay.jukebox.model.Artist;
 import org.liferay.jukebox.service.ArtistLocalServiceUtil;
@@ -28,7 +27,7 @@ import org.liferay.jukebox.service.ArtistLocalServiceUtil;
 @Deprecated
 public abstract class ArtistActionableDynamicQuery
 	extends BaseActionableDynamicQuery {
-	public ArtistActionableDynamicQuery() throws SystemException {
+	public ArtistActionableDynamicQuery() {
 		setBaseLocalService(ArtistLocalServiceUtil.getService());
 		setClass(Artist.class);
 

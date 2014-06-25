@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -102,101 +102,107 @@ public class AlbumLocalServiceClpInvoker {
 				"com.liferay.portal.kernel.lar.PortletDataContext"
 			};
 
-		_methodName17 = "getPersistedModel";
+		_methodName17 = "deletePersistedModel";
 
-		_methodParameterTypes17 = new String[] { "java.io.Serializable" };
+		_methodParameterTypes17 = new String[] {
+				"com.liferay.portal.model.PersistedModel"
+			};
 
-		_methodName18 = "getAlbumByUuidAndCompanyId";
+		_methodName18 = "getPersistedModel";
 
-		_methodParameterTypes18 = new String[] { "java.lang.String", "long" };
+		_methodParameterTypes18 = new String[] { "java.io.Serializable" };
 
-		_methodName19 = "getAlbumByUuidAndGroupId";
+		_methodName19 = "getAlbumByUuidAndCompanyId";
 
 		_methodParameterTypes19 = new String[] { "java.lang.String", "long" };
 
-		_methodName20 = "getAlbums";
+		_methodName20 = "getAlbumByUuidAndGroupId";
 
-		_methodParameterTypes20 = new String[] { "int", "int" };
+		_methodParameterTypes20 = new String[] { "java.lang.String", "long" };
 
-		_methodName21 = "getAlbumsCount";
+		_methodName21 = "getAlbums";
 
-		_methodParameterTypes21 = new String[] {  };
+		_methodParameterTypes21 = new String[] { "int", "int" };
 
-		_methodName22 = "updateAlbum";
+		_methodName22 = "getAlbumsCount";
 
-		_methodParameterTypes22 = new String[] { "org.liferay.jukebox.model.Album" };
+		_methodParameterTypes22 = new String[] {  };
 
-		_methodName109 = "getBeanIdentifier";
+		_methodName23 = "updateAlbum";
 
-		_methodParameterTypes109 = new String[] {  };
+		_methodParameterTypes23 = new String[] { "org.liferay.jukebox.model.Album" };
 
-		_methodName110 = "setBeanIdentifier";
+		_methodName110 = "getBeanIdentifier";
 
-		_methodParameterTypes110 = new String[] { "java.lang.String" };
+		_methodParameterTypes110 = new String[] {  };
 
-		_methodName115 = "addAlbum";
+		_methodName111 = "setBeanIdentifier";
 
-		_methodParameterTypes115 = new String[] {
-				"long", "long", "java.lang.String", "int", "java.io.InputStream",
-				"com.liferay.portal.service.ServiceContext"
-			};
+		_methodParameterTypes111 = new String[] { "java.lang.String" };
 
-		_methodName116 = "addEntryResources";
+		_methodName116 = "addAlbum";
 
 		_methodParameterTypes116 = new String[] {
-				"org.liferay.jukebox.model.Album", "boolean", "boolean"
+				"long", "long", "java.lang.String", "int", "java.io.InputStream",
+				"com.liferay.portal.service.ServiceContext"
 			};
 
 		_methodName117 = "addEntryResources";
 
 		_methodParameterTypes117 = new String[] {
+				"org.liferay.jukebox.model.Album", "boolean", "boolean"
+			};
+
+		_methodName118 = "addEntryResources";
+
+		_methodParameterTypes118 = new String[] {
 				"org.liferay.jukebox.model.Album", "java.lang.String[][]",
 				"java.lang.String[][]"
 			};
 
-		_methodName118 = "deleteAlbum";
-
-		_methodParameterTypes118 = new String[] { "long" };
-
-		_methodName119 = "deleteAlbums";
+		_methodName119 = "deleteAlbum";
 
 		_methodParameterTypes119 = new String[] { "long" };
 
-		_methodName120 = "getAlbums";
+		_methodName120 = "deleteAlbums";
 
 		_methodParameterTypes120 = new String[] { "long" };
 
 		_methodName121 = "getAlbums";
 
-		_methodParameterTypes121 = new String[] { "long", "int", "int" };
+		_methodParameterTypes121 = new String[] { "long" };
 
-		_methodName122 = "getAlbumsByArtistId";
+		_methodName122 = "getAlbums";
 
-		_methodParameterTypes122 = new String[] { "long" };
+		_methodParameterTypes122 = new String[] { "long", "int", "int" };
 
-		_methodName123 = "getAlbumsCount";
+		_methodName123 = "getAlbumsByArtistId";
 
 		_methodParameterTypes123 = new String[] { "long" };
 
-		_methodName124 = "moveAlbumToTrash";
+		_methodName124 = "getAlbumsCount";
 
-		_methodParameterTypes124 = new String[] { "long", "long" };
+		_methodParameterTypes124 = new String[] { "long" };
 
-		_methodName125 = "restoreAlbumFromTrash";
+		_methodName125 = "moveAlbumToTrash";
 
 		_methodParameterTypes125 = new String[] { "long", "long" };
 
-		_methodName126 = "updateAlbum";
+		_methodName126 = "restoreAlbumFromTrash";
 
-		_methodParameterTypes126 = new String[] {
+		_methodParameterTypes126 = new String[] { "long", "long" };
+
+		_methodName127 = "updateAlbum";
+
+		_methodParameterTypes127 = new String[] {
 				"long", "long", "long", "java.lang.String", "int",
 				"java.io.InputStream",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName127 = "updateAsset";
+		_methodName128 = "updateAsset";
 
-		_methodParameterTypes127 = new String[] {
+		_methodParameterTypes128 = new String[] {
 				"long", "org.liferay.jukebox.model.Album", "long[][]",
 				"java.lang.String[][]", "long[][]"
 			};
@@ -294,51 +300,56 @@ public class AlbumLocalServiceClpInvoker {
 
 		if (_methodName17.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes17, parameterTypes)) {
-			return AlbumLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
+			return AlbumLocalServiceUtil.deletePersistedModel((com.liferay.portal.model.PersistedModel)arguments[0]);
 		}
 
 		if (_methodName18.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes18, parameterTypes)) {
-			return AlbumLocalServiceUtil.getAlbumByUuidAndCompanyId((java.lang.String)arguments[0],
-				((Long)arguments[1]).longValue());
+			return AlbumLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
 		}
 
 		if (_methodName19.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes19, parameterTypes)) {
-			return AlbumLocalServiceUtil.getAlbumByUuidAndGroupId((java.lang.String)arguments[0],
+			return AlbumLocalServiceUtil.getAlbumByUuidAndCompanyId((java.lang.String)arguments[0],
 				((Long)arguments[1]).longValue());
 		}
 
 		if (_methodName20.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes20, parameterTypes)) {
-			return AlbumLocalServiceUtil.getAlbums(((Integer)arguments[0]).intValue(),
-				((Integer)arguments[1]).intValue());
+			return AlbumLocalServiceUtil.getAlbumByUuidAndGroupId((java.lang.String)arguments[0],
+				((Long)arguments[1]).longValue());
 		}
 
 		if (_methodName21.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes21, parameterTypes)) {
-			return AlbumLocalServiceUtil.getAlbumsCount();
+			return AlbumLocalServiceUtil.getAlbums(((Integer)arguments[0]).intValue(),
+				((Integer)arguments[1]).intValue());
 		}
 
 		if (_methodName22.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes22, parameterTypes)) {
-			return AlbumLocalServiceUtil.updateAlbum((org.liferay.jukebox.model.Album)arguments[0]);
+			return AlbumLocalServiceUtil.getAlbumsCount();
 		}
 
-		if (_methodName109.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes109, parameterTypes)) {
-			return AlbumLocalServiceUtil.getBeanIdentifier();
+		if (_methodName23.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes23, parameterTypes)) {
+			return AlbumLocalServiceUtil.updateAlbum((org.liferay.jukebox.model.Album)arguments[0]);
 		}
 
 		if (_methodName110.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes110, parameterTypes)) {
+			return AlbumLocalServiceUtil.getBeanIdentifier();
+		}
+
+		if (_methodName111.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes111, parameterTypes)) {
 			AlbumLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
-		if (_methodName115.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes115, parameterTypes)) {
+		if (_methodName116.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes116, parameterTypes)) {
 			return AlbumLocalServiceUtil.addAlbum(((Long)arguments[0]).longValue(),
 				((Long)arguments[1]).longValue(),
 				(java.lang.String)arguments[2],
@@ -347,8 +358,8 @@ public class AlbumLocalServiceClpInvoker {
 				(com.liferay.portal.service.ServiceContext)arguments[5]);
 		}
 
-		if (_methodName116.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes116, parameterTypes)) {
+		if (_methodName117.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes117, parameterTypes)) {
 			AlbumLocalServiceUtil.addEntryResources((org.liferay.jukebox.model.Album)arguments[0],
 				((Boolean)arguments[1]).booleanValue(),
 				((Boolean)arguments[2]).booleanValue());
@@ -356,8 +367,8 @@ public class AlbumLocalServiceClpInvoker {
 			return null;
 		}
 
-		if (_methodName117.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes117, parameterTypes)) {
+		if (_methodName118.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes118, parameterTypes)) {
 			AlbumLocalServiceUtil.addEntryResources((org.liferay.jukebox.model.Album)arguments[0],
 				(java.lang.String[])arguments[1],
 				(java.lang.String[])arguments[2]);
@@ -365,54 +376,54 @@ public class AlbumLocalServiceClpInvoker {
 			return null;
 		}
 
-		if (_methodName118.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes118, parameterTypes)) {
+		if (_methodName119.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes119, parameterTypes)) {
 			return AlbumLocalServiceUtil.deleteAlbum(((Long)arguments[0]).longValue());
 		}
 
-		if (_methodName119.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes119, parameterTypes)) {
+		if (_methodName120.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes120, parameterTypes)) {
 			AlbumLocalServiceUtil.deleteAlbums(((Long)arguments[0]).longValue());
 
 			return null;
 		}
 
-		if (_methodName120.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes120, parameterTypes)) {
+		if (_methodName121.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes121, parameterTypes)) {
 			return AlbumLocalServiceUtil.getAlbums(((Long)arguments[0]).longValue());
 		}
 
-		if (_methodName121.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes121, parameterTypes)) {
+		if (_methodName122.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes122, parameterTypes)) {
 			return AlbumLocalServiceUtil.getAlbums(((Long)arguments[0]).longValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
-		if (_methodName122.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes122, parameterTypes)) {
-			return AlbumLocalServiceUtil.getAlbumsByArtistId(((Long)arguments[0]).longValue());
-		}
-
 		if (_methodName123.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes123, parameterTypes)) {
-			return AlbumLocalServiceUtil.getAlbumsCount(((Long)arguments[0]).longValue());
+			return AlbumLocalServiceUtil.getAlbumsByArtistId(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName124.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes124, parameterTypes)) {
-			return AlbumLocalServiceUtil.moveAlbumToTrash(((Long)arguments[0]).longValue(),
-				((Long)arguments[1]).longValue());
+			return AlbumLocalServiceUtil.getAlbumsCount(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName125.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes125, parameterTypes)) {
-			return AlbumLocalServiceUtil.restoreAlbumFromTrash(((Long)arguments[0]).longValue(),
+			return AlbumLocalServiceUtil.moveAlbumToTrash(((Long)arguments[0]).longValue(),
 				((Long)arguments[1]).longValue());
 		}
 
 		if (_methodName126.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes126, parameterTypes)) {
+			return AlbumLocalServiceUtil.restoreAlbumFromTrash(((Long)arguments[0]).longValue(),
+				((Long)arguments[1]).longValue());
+		}
+
+		if (_methodName127.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes127, parameterTypes)) {
 			return AlbumLocalServiceUtil.updateAlbum(((Long)arguments[0]).longValue(),
 				((Long)arguments[1]).longValue(),
 				((Long)arguments[2]).longValue(),
@@ -422,8 +433,8 @@ public class AlbumLocalServiceClpInvoker {
 				(com.liferay.portal.service.ServiceContext)arguments[6]);
 		}
 
-		if (_methodName127.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes127, parameterTypes)) {
+		if (_methodName128.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes128, parameterTypes)) {
 			AlbumLocalServiceUtil.updateAsset(((Long)arguments[0]).longValue(),
 				(org.liferay.jukebox.model.Album)arguments[1],
 				(long[])arguments[2], (java.lang.String[])arguments[3],
@@ -479,12 +490,12 @@ public class AlbumLocalServiceClpInvoker {
 	private String[] _methodParameterTypes21;
 	private String _methodName22;
 	private String[] _methodParameterTypes22;
-	private String _methodName109;
-	private String[] _methodParameterTypes109;
+	private String _methodName23;
+	private String[] _methodParameterTypes23;
 	private String _methodName110;
 	private String[] _methodParameterTypes110;
-	private String _methodName115;
-	private String[] _methodParameterTypes115;
+	private String _methodName111;
+	private String[] _methodParameterTypes111;
 	private String _methodName116;
 	private String[] _methodParameterTypes116;
 	private String _methodName117;
@@ -509,4 +520,6 @@ public class AlbumLocalServiceClpInvoker {
 	private String[] _methodParameterTypes126;
 	private String _methodName127;
 	private String[] _methodParameterTypes127;
+	private String _methodName128;
+	private String[] _methodParameterTypes128;
 }

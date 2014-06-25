@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -16,7 +16,6 @@ package org.liferay.jukebox.service.persistence;
 
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 import com.liferay.portal.service.ServiceContext;
@@ -61,16 +60,14 @@ public class SongUtil {
 	/**
 	 * @see com.liferay.portal.service.persistence.BasePersistence#countWithDynamicQuery(DynamicQuery)
 	 */
-	public static long countWithDynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
+	public static long countWithDynamicQuery(DynamicQuery dynamicQuery) {
 		return getPersistence().countWithDynamicQuery(dynamicQuery);
 	}
 
 	/**
 	 * @see com.liferay.portal.service.persistence.BasePersistence#findWithDynamicQuery(DynamicQuery)
 	 */
-	public static List<Song> findWithDynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
+	public static List<Song> findWithDynamicQuery(DynamicQuery dynamicQuery) {
 		return getPersistence().findWithDynamicQuery(dynamicQuery);
 	}
 
@@ -78,7 +75,7 @@ public class SongUtil {
 	 * @see com.liferay.portal.service.persistence.BasePersistence#findWithDynamicQuery(DynamicQuery, int, int)
 	 */
 	public static List<Song> findWithDynamicQuery(DynamicQuery dynamicQuery,
-		int start, int end) throws SystemException {
+		int start, int end) {
 		return getPersistence().findWithDynamicQuery(dynamicQuery, start, end);
 	}
 
@@ -86,8 +83,7 @@ public class SongUtil {
 	 * @see com.liferay.portal.service.persistence.BasePersistence#findWithDynamicQuery(DynamicQuery, int, int, OrderByComparator)
 	 */
 	public static List<Song> findWithDynamicQuery(DynamicQuery dynamicQuery,
-		int start, int end, OrderByComparator orderByComparator)
-		throws SystemException {
+		int start, int end, OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findWithDynamicQuery(dynamicQuery, start, end,
 			orderByComparator);
@@ -96,15 +92,14 @@ public class SongUtil {
 	/**
 	 * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel)
 	 */
-	public static Song update(Song song) throws SystemException {
+	public static Song update(Song song) {
 		return getPersistence().update(song);
 	}
 
 	/**
 	 * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel, ServiceContext)
 	 */
-	public static Song update(Song song, ServiceContext serviceContext)
-		throws SystemException {
+	public static Song update(Song song, ServiceContext serviceContext) {
 		return getPersistence().update(song, serviceContext);
 	}
 
@@ -113,11 +108,9 @@ public class SongUtil {
 	*
 	* @param uuid the uuid
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUuid(
-		java.lang.String uuid)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid) {
 		return getPersistence().findByUuid(uuid);
 	}
 
@@ -132,11 +125,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUuid(
-		java.lang.String uuid, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, int start, int end) {
 		return getPersistence().findByUuid(uuid, start, end);
 	}
 
@@ -152,12 +143,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUuid(
 		java.lang.String uuid, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().findByUuid(uuid, start, end, orderByComparator);
 	}
 
@@ -168,13 +157,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUuid_First(
 		java.lang.String uuid,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByUuid_First(uuid, orderByComparator);
 	}
 
@@ -184,12 +171,10 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUuid_First(
 		java.lang.String uuid,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByUuid_First(uuid, orderByComparator);
 	}
 
@@ -200,13 +185,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUuid_Last(
 		java.lang.String uuid,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByUuid_Last(uuid, orderByComparator);
 	}
 
@@ -216,12 +199,10 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUuid_Last(
 		java.lang.String uuid,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByUuid_Last(uuid, orderByComparator);
 	}
 
@@ -233,13 +214,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByUuid_PrevAndNext(
 		long songId, java.lang.String uuid,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByUuid_PrevAndNext(songId, uuid, orderByComparator);
 	}
@@ -248,10 +227,8 @@ public class SongUtil {
 	* Removes all the songs where uuid = &#63; from the database.
 	*
 	* @param uuid the uuid
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByUuid(java.lang.String uuid)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByUuid(java.lang.String uuid) {
 		getPersistence().removeByUuid(uuid);
 	}
 
@@ -260,10 +237,8 @@ public class SongUtil {
 	*
 	* @param uuid the uuid
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByUuid(java.lang.String uuid)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByUuid(java.lang.String uuid) {
 		return getPersistence().countByUuid(uuid);
 	}
 
@@ -274,12 +249,10 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @return the matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUUID_G(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByUUID_G(uuid, groupId);
 	}
 
@@ -289,11 +262,9 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param groupId the group ID
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUUID_G(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long groupId) {
 		return getPersistence().fetchByUUID_G(uuid, groupId);
 	}
 
@@ -304,11 +275,9 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param retrieveFromCache whether to use the finder cache
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUUID_G(
-		java.lang.String uuid, long groupId, boolean retrieveFromCache)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long groupId, boolean retrieveFromCache) {
 		return getPersistence().fetchByUUID_G(uuid, groupId, retrieveFromCache);
 	}
 
@@ -318,12 +287,10 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param groupId the group ID
 	* @return the song that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song removeByUUID_G(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().removeByUUID_G(uuid, groupId);
 	}
 
@@ -333,10 +300,8 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param groupId the group ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByUUID_G(java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByUUID_G(java.lang.String uuid, long groupId) {
 		return getPersistence().countByUUID_G(uuid, groupId);
 	}
 
@@ -346,11 +311,9 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param companyId the company ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUuid_C(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long companyId) {
 		return getPersistence().findByUuid_C(uuid, companyId);
 	}
 
@@ -366,11 +329,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUuid_C(
-		java.lang.String uuid, long companyId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long companyId, int start, int end) {
 		return getPersistence().findByUuid_C(uuid, companyId, start, end);
 	}
 
@@ -387,12 +348,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUuid_C(
 		java.lang.String uuid, long companyId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByUuid_C(uuid, companyId, start, end, orderByComparator);
 	}
@@ -405,13 +364,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUuid_C_First(
 		java.lang.String uuid, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByUuid_C_First(uuid, companyId, orderByComparator);
 	}
@@ -423,12 +380,10 @@ public class SongUtil {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUuid_C_First(
 		java.lang.String uuid, long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByUuid_C_First(uuid, companyId, orderByComparator);
 	}
@@ -441,13 +396,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUuid_C_Last(
 		java.lang.String uuid, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByUuid_C_Last(uuid, companyId, orderByComparator);
 	}
@@ -459,12 +412,10 @@ public class SongUtil {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUuid_C_Last(
 		java.lang.String uuid, long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByUuid_C_Last(uuid, companyId, orderByComparator);
 	}
@@ -478,13 +429,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByUuid_C_PrevAndNext(
 		long songId, java.lang.String uuid, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByUuid_C_PrevAndNext(songId, uuid, companyId,
 			orderByComparator);
@@ -495,10 +444,8 @@ public class SongUtil {
 	*
 	* @param uuid the uuid
 	* @param companyId the company ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByUuid_C(java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByUuid_C(java.lang.String uuid, long companyId) {
 		getPersistence().removeByUuid_C(uuid, companyId);
 	}
 
@@ -508,10 +455,8 @@ public class SongUtil {
 	* @param uuid the uuid
 	* @param companyId the company ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByUuid_C(java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByUuid_C(java.lang.String uuid, long companyId) {
 		return getPersistence().countByUuid_C(uuid, companyId);
 	}
 
@@ -520,11 +465,9 @@ public class SongUtil {
 	*
 	* @param groupId the group ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByGroupId(
-		long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId) {
 		return getPersistence().findByGroupId(groupId);
 	}
 
@@ -539,11 +482,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByGroupId(
-		long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, int start, int end) {
 		return getPersistence().findByGroupId(groupId, start, end);
 	}
 
@@ -559,12 +500,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByGroupId(
 		long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByGroupId(groupId, start, end, orderByComparator);
 	}
@@ -576,13 +515,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByGroupId_First(
 		long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByGroupId_First(groupId, orderByComparator);
 	}
 
@@ -592,12 +529,10 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByGroupId_First(
 		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByGroupId_First(groupId, orderByComparator);
 	}
 
@@ -608,13 +543,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByGroupId_Last(
 		long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByGroupId_Last(groupId, orderByComparator);
 	}
 
@@ -624,12 +557,10 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByGroupId_Last(
 		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByGroupId_Last(groupId, orderByComparator);
 	}
 
@@ -641,13 +572,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByGroupId_PrevAndNext(
 		long songId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByGroupId_PrevAndNext(songId, groupId, orderByComparator);
 	}
@@ -657,11 +586,9 @@ public class SongUtil {
 	*
 	* @param groupId the group ID
 	* @return the matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByGroupId(
-		long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId) {
 		return getPersistence().filterFindByGroupId(groupId);
 	}
 
@@ -676,11 +603,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByGroupId(
-		long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, int start, int end) {
 		return getPersistence().filterFindByGroupId(groupId, start, end);
 	}
 
@@ -696,12 +621,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByGroupId(
 		long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .filterFindByGroupId(groupId, start, end, orderByComparator);
 	}
@@ -714,13 +637,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] filterFindByGroupId_PrevAndNext(
 		long songId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .filterFindByGroupId_PrevAndNext(songId, groupId,
 			orderByComparator);
@@ -730,10 +651,8 @@ public class SongUtil {
 	* Removes all the songs where groupId = &#63; from the database.
 	*
 	* @param groupId the group ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByGroupId(long groupId) {
 		getPersistence().removeByGroupId(groupId);
 	}
 
@@ -742,10 +661,8 @@ public class SongUtil {
 	*
 	* @param groupId the group ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByGroupId(long groupId) {
 		return getPersistence().countByGroupId(groupId);
 	}
 
@@ -754,10 +671,8 @@ public class SongUtil {
 	*
 	* @param groupId the group ID
 	* @return the number of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int filterCountByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int filterCountByGroupId(long groupId) {
 		return getPersistence().filterCountByGroupId(groupId);
 	}
 
@@ -766,10 +681,9 @@ public class SongUtil {
 	*
 	* @param userId the user ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUserId(
-		long userId) throws com.liferay.portal.kernel.exception.SystemException {
+		long userId) {
 		return getPersistence().findByUserId(userId);
 	}
 
@@ -784,11 +698,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUserId(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long userId, int start, int end) {
 		return getPersistence().findByUserId(userId, start, end);
 	}
 
@@ -804,12 +716,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByUserId(
 		long userId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByUserId(userId, start, end, orderByComparator);
 	}
@@ -821,13 +731,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUserId_First(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByUserId_First(userId, orderByComparator);
 	}
 
@@ -837,12 +745,10 @@ public class SongUtil {
 	* @param userId the user ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUserId_First(
 		long userId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByUserId_First(userId, orderByComparator);
 	}
 
@@ -853,13 +759,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByUserId_Last(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByUserId_Last(userId, orderByComparator);
 	}
 
@@ -869,12 +773,10 @@ public class SongUtil {
 	* @param userId the user ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByUserId_Last(
 		long userId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByUserId_Last(userId, orderByComparator);
 	}
 
@@ -886,13 +788,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByUserId_PrevAndNext(
 		long songId, long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByUserId_PrevAndNext(songId, userId, orderByComparator);
 	}
@@ -901,10 +801,8 @@ public class SongUtil {
 	* Removes all the songs where userId = &#63; from the database.
 	*
 	* @param userId the user ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByUserId(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByUserId(long userId) {
 		getPersistence().removeByUserId(userId);
 	}
 
@@ -913,10 +811,8 @@ public class SongUtil {
 	*
 	* @param userId the user ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByUserId(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByUserId(long userId) {
 		return getPersistence().countByUserId(userId);
 	}
 
@@ -925,11 +821,9 @@ public class SongUtil {
 	*
 	* @param companyId the company ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByCompanyId(
-		long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long companyId) {
 		return getPersistence().findByCompanyId(companyId);
 	}
 
@@ -944,11 +838,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByCompanyId(
-		long companyId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long companyId, int start, int end) {
 		return getPersistence().findByCompanyId(companyId, start, end);
 	}
 
@@ -964,12 +856,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByCompanyId(
 		long companyId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByCompanyId(companyId, start, end, orderByComparator);
 	}
@@ -981,13 +871,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByCompanyId_First(
 		long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByCompanyId_First(companyId, orderByComparator);
 	}
@@ -998,12 +886,10 @@ public class SongUtil {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByCompanyId_First(
 		long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByCompanyId_First(companyId, orderByComparator);
 	}
@@ -1015,13 +901,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByCompanyId_Last(
 		long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByCompanyId_Last(companyId, orderByComparator);
 	}
@@ -1032,12 +916,10 @@ public class SongUtil {
 	* @param companyId the company ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByCompanyId_Last(
 		long companyId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByCompanyId_Last(companyId, orderByComparator);
 	}
@@ -1050,13 +932,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByCompanyId_PrevAndNext(
 		long songId, long companyId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByCompanyId_PrevAndNext(songId, companyId,
 			orderByComparator);
@@ -1066,10 +946,8 @@ public class SongUtil {
 	* Removes all the songs where companyId = &#63; from the database.
 	*
 	* @param companyId the company ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByCompanyId(long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByCompanyId(long companyId) {
 		getPersistence().removeByCompanyId(companyId);
 	}
 
@@ -1078,10 +956,8 @@ public class SongUtil {
 	*
 	* @param companyId the company ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByCompanyId(long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByCompanyId(long companyId) {
 		return getPersistence().countByCompanyId(companyId);
 	}
 
@@ -1090,11 +966,9 @@ public class SongUtil {
 	*
 	* @param artistId the artist ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByArtistId(
-		long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long artistId) {
 		return getPersistence().findByArtistId(artistId);
 	}
 
@@ -1109,11 +983,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByArtistId(
-		long artistId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long artistId, int start, int end) {
 		return getPersistence().findByArtistId(artistId, start, end);
 	}
 
@@ -1129,12 +1001,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByArtistId(
 		long artistId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByArtistId(artistId, start, end, orderByComparator);
 	}
@@ -1146,13 +1016,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByArtistId_First(
 		long artistId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByArtistId_First(artistId, orderByComparator);
 	}
 
@@ -1162,12 +1030,10 @@ public class SongUtil {
 	* @param artistId the artist ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByArtistId_First(
 		long artistId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByArtistId_First(artistId, orderByComparator);
 	}
@@ -1179,13 +1045,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByArtistId_Last(
 		long artistId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByArtistId_Last(artistId, orderByComparator);
 	}
 
@@ -1195,12 +1059,10 @@ public class SongUtil {
 	* @param artistId the artist ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByArtistId_Last(
 		long artistId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByArtistId_Last(artistId, orderByComparator);
 	}
 
@@ -1212,13 +1074,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByArtistId_PrevAndNext(
 		long songId, long artistId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByArtistId_PrevAndNext(songId, artistId,
 			orderByComparator);
@@ -1228,10 +1088,8 @@ public class SongUtil {
 	* Removes all the songs where artistId = &#63; from the database.
 	*
 	* @param artistId the artist ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByArtistId(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByArtistId(long artistId) {
 		getPersistence().removeByArtistId(artistId);
 	}
 
@@ -1240,10 +1098,8 @@ public class SongUtil {
 	*
 	* @param artistId the artist ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByArtistId(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByArtistId(long artistId) {
 		return getPersistence().countByArtistId(artistId);
 	}
 
@@ -1252,11 +1108,9 @@ public class SongUtil {
 	*
 	* @param albumId the album ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByAlbumId(
-		long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long albumId) {
 		return getPersistence().findByAlbumId(albumId);
 	}
 
@@ -1271,11 +1125,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByAlbumId(
-		long albumId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long albumId, int start, int end) {
 		return getPersistence().findByAlbumId(albumId, start, end);
 	}
 
@@ -1291,12 +1143,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByAlbumId(
 		long albumId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByAlbumId(albumId, start, end, orderByComparator);
 	}
@@ -1308,13 +1158,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByAlbumId_First(
 		long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByAlbumId_First(albumId, orderByComparator);
 	}
 
@@ -1324,12 +1172,10 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByAlbumId_First(
 		long albumId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByAlbumId_First(albumId, orderByComparator);
 	}
 
@@ -1340,13 +1186,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByAlbumId_Last(
 		long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByAlbumId_Last(albumId, orderByComparator);
 	}
 
@@ -1356,12 +1200,10 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByAlbumId_Last(
 		long albumId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().fetchByAlbumId_Last(albumId, orderByComparator);
 	}
 
@@ -1373,13 +1215,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByAlbumId_PrevAndNext(
 		long songId, long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByAlbumId_PrevAndNext(songId, albumId, orderByComparator);
 	}
@@ -1388,10 +1228,8 @@ public class SongUtil {
 	* Removes all the songs where albumId = &#63; from the database.
 	*
 	* @param albumId the album ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByAlbumId(long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByAlbumId(long albumId) {
 		getPersistence().removeByAlbumId(albumId);
 	}
 
@@ -1400,10 +1238,8 @@ public class SongUtil {
 	*
 	* @param albumId the album ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByAlbumId(long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByAlbumId(long albumId) {
 		return getPersistence().countByAlbumId(albumId);
 	}
 
@@ -1413,11 +1249,9 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_S(
-		long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, int status) {
 		return getPersistence().findByG_S(groupId, status);
 	}
 
@@ -1433,11 +1267,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_S(
-		long groupId, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, int status, int start, int end) {
 		return getPersistence().findByG_S(groupId, status, start, end);
 	}
 
@@ -1454,12 +1286,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_S(
 		long groupId, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByG_S(groupId, status, start, end, orderByComparator);
 	}
@@ -1472,13 +1302,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_S_First(long groupId,
 		int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_S_First(groupId, status, orderByComparator);
 	}
@@ -1490,12 +1318,10 @@ public class SongUtil {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_S_First(
 		long groupId, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_S_First(groupId, status, orderByComparator);
 	}
@@ -1508,13 +1334,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_S_Last(long groupId,
 		int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_S_Last(groupId, status, orderByComparator);
 	}
@@ -1526,12 +1350,10 @@ public class SongUtil {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_S_Last(long groupId,
 		int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_S_Last(groupId, status, orderByComparator);
 	}
@@ -1545,13 +1367,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByG_S_PrevAndNext(
 		long songId, long groupId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_S_PrevAndNext(songId, groupId, status,
 			orderByComparator);
@@ -1563,11 +1383,9 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_S(
-		long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, int status) {
 		return getPersistence().filterFindByG_S(groupId, status);
 	}
 
@@ -1583,11 +1401,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_S(
-		long groupId, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, int status, int start, int end) {
 		return getPersistence().filterFindByG_S(groupId, status, start, end);
 	}
 
@@ -1604,12 +1420,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_S(
 		long groupId, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .filterFindByG_S(groupId, status, start, end,
 			orderByComparator);
@@ -1624,13 +1438,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] filterFindByG_S_PrevAndNext(
 		long songId, long groupId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .filterFindByG_S_PrevAndNext(songId, groupId, status,
 			orderByComparator);
@@ -1641,10 +1453,8 @@ public class SongUtil {
 	*
 	* @param groupId the group ID
 	* @param status the status
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByG_S(long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByG_S(long groupId, int status) {
 		getPersistence().removeByG_S(groupId, status);
 	}
 
@@ -1654,10 +1464,8 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByG_S(long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByG_S(long groupId, int status) {
 		return getPersistence().countByG_S(groupId, status);
 	}
 
@@ -1667,10 +1475,8 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param status the status
 	* @return the number of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int filterCountByG_S(long groupId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int filterCountByG_S(long groupId, int status) {
 		return getPersistence().filterCountByG_S(groupId, status);
 	}
 
@@ -1680,11 +1486,9 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param albumId the album ID
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_A(
-		long groupId, long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId) {
 		return getPersistence().findByG_A(groupId, albumId);
 	}
 
@@ -1700,11 +1504,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_A(
-		long groupId, long albumId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId, int start, int end) {
 		return getPersistence().findByG_A(groupId, albumId, start, end);
 	}
 
@@ -1721,12 +1523,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_A(
 		long groupId, long albumId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByG_A(groupId, albumId, start, end, orderByComparator);
 	}
@@ -1739,13 +1539,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_A_First(long groupId,
 		long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_A_First(groupId, albumId, orderByComparator);
 	}
@@ -1757,12 +1555,10 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_A_First(
 		long groupId, long albumId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_A_First(groupId, albumId, orderByComparator);
 	}
@@ -1775,13 +1571,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_A_Last(long groupId,
 		long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_A_Last(groupId, albumId, orderByComparator);
 	}
@@ -1793,12 +1587,10 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_A_Last(long groupId,
 		long albumId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_A_Last(groupId, albumId, orderByComparator);
 	}
@@ -1812,13 +1604,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByG_A_PrevAndNext(
 		long songId, long groupId, long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_A_PrevAndNext(songId, groupId, albumId,
 			orderByComparator);
@@ -1830,11 +1620,9 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param albumId the album ID
 	* @return the matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_A(
-		long groupId, long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId) {
 		return getPersistence().filterFindByG_A(groupId, albumId);
 	}
 
@@ -1850,11 +1638,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_A(
-		long groupId, long albumId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId, int start, int end) {
 		return getPersistence().filterFindByG_A(groupId, albumId, start, end);
 	}
 
@@ -1871,12 +1657,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_A(
 		long groupId, long albumId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .filterFindByG_A(groupId, albumId, start, end,
 			orderByComparator);
@@ -1891,13 +1675,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] filterFindByG_A_PrevAndNext(
 		long songId, long groupId, long albumId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .filterFindByG_A_PrevAndNext(songId, groupId, albumId,
 			orderByComparator);
@@ -1908,10 +1690,8 @@ public class SongUtil {
 	*
 	* @param groupId the group ID
 	* @param albumId the album ID
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByG_A(long groupId, long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByG_A(long groupId, long albumId) {
 		getPersistence().removeByG_A(groupId, albumId);
 	}
 
@@ -1921,10 +1701,8 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param albumId the album ID
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByG_A(long groupId, long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByG_A(long groupId, long albumId) {
 		return getPersistence().countByG_A(groupId, albumId);
 	}
 
@@ -1934,10 +1712,8 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param albumId the album ID
 	* @return the number of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int filterCountByG_A(long groupId, long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int filterCountByG_A(long groupId, long albumId) {
 		return getPersistence().filterCountByG_A(groupId, albumId);
 	}
 
@@ -1948,11 +1724,9 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param status the status
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_A_S(
-		long groupId, long albumId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId, int status) {
 		return getPersistence().findByG_A_S(groupId, albumId, status);
 	}
 
@@ -1969,11 +1743,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_A_S(
-		long groupId, long albumId, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId, int status, int start, int end) {
 		return getPersistence().findByG_A_S(groupId, albumId, status, start, end);
 	}
 
@@ -1991,12 +1763,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_A_S(
 		long groupId, long albumId, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByG_A_S(groupId, albumId, status, start, end,
 			orderByComparator);
@@ -2011,13 +1781,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_A_S_First(
 		long groupId, long albumId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_A_S_First(groupId, albumId, status,
 			orderByComparator);
@@ -2031,12 +1799,10 @@ public class SongUtil {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_A_S_First(
 		long groupId, long albumId, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_A_S_First(groupId, albumId, status,
 			orderByComparator);
@@ -2051,13 +1817,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_A_S_Last(
 		long groupId, long albumId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_A_S_Last(groupId, albumId, status, orderByComparator);
 	}
@@ -2070,12 +1834,10 @@ public class SongUtil {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_A_S_Last(
 		long groupId, long albumId, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_A_S_Last(groupId, albumId, status,
 			orderByComparator);
@@ -2091,13 +1853,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByG_A_S_PrevAndNext(
 		long songId, long groupId, long albumId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_A_S_PrevAndNext(songId, groupId, albumId, status,
 			orderByComparator);
@@ -2110,11 +1870,9 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param status the status
 	* @return the matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_A_S(
-		long groupId, long albumId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId, int status) {
 		return getPersistence().filterFindByG_A_S(groupId, albumId, status);
 	}
 
@@ -2131,11 +1889,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_A_S(
-		long groupId, long albumId, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, long albumId, int status, int start, int end) {
 		return getPersistence()
 				   .filterFindByG_A_S(groupId, albumId, status, start, end);
 	}
@@ -2154,12 +1910,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_A_S(
 		long groupId, long albumId, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .filterFindByG_A_S(groupId, albumId, status, start, end,
 			orderByComparator);
@@ -2175,13 +1929,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] filterFindByG_A_S_PrevAndNext(
 		long songId, long groupId, long albumId, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .filterFindByG_A_S_PrevAndNext(songId, groupId, albumId,
 			status, orderByComparator);
@@ -2193,10 +1945,8 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param albumId the album ID
 	* @param status the status
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByG_A_S(long groupId, long albumId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeByG_A_S(long groupId, long albumId, int status) {
 		getPersistence().removeByG_A_S(groupId, albumId, status);
 	}
 
@@ -2207,10 +1957,8 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param status the status
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByG_A_S(long groupId, long albumId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countByG_A_S(long groupId, long albumId, int status) {
 		return getPersistence().countByG_A_S(groupId, albumId, status);
 	}
 
@@ -2221,10 +1969,8 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param status the status
 	* @return the number of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int filterCountByG_A_S(long groupId, long albumId, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int filterCountByG_A_S(long groupId, long albumId, int status) {
 		return getPersistence().filterCountByG_A_S(groupId, albumId, status);
 	}
 
@@ -2235,11 +1981,9 @@ public class SongUtil {
 	* @param name the name
 	* @param status the status
 	* @return the matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_LikeN_S(
-		long groupId, java.lang.String name, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, java.lang.String name, int status) {
 		return getPersistence().findByG_LikeN_S(groupId, name, status);
 	}
 
@@ -2256,11 +2000,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_LikeN_S(
-		long groupId, java.lang.String name, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, java.lang.String name, int status, int start, int end) {
 		return getPersistence()
 				   .findByG_LikeN_S(groupId, name, status, start, end);
 	}
@@ -2279,12 +2021,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findByG_LikeN_S(
 		long groupId, java.lang.String name, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .findByG_LikeN_S(groupId, name, status, start, end,
 			orderByComparator);
@@ -2299,13 +2039,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_LikeN_S_First(
 		long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_LikeN_S_First(groupId, name, status,
 			orderByComparator);
@@ -2319,12 +2057,10 @@ public class SongUtil {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_LikeN_S_First(
 		long groupId, java.lang.String name, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_LikeN_S_First(groupId, name, status,
 			orderByComparator);
@@ -2339,13 +2075,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_LikeN_S_Last(
 		long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_LikeN_S_Last(groupId, name, status,
 			orderByComparator);
@@ -2359,12 +2093,10 @@ public class SongUtil {
 	* @param status the status
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_LikeN_S_Last(
 		long groupId, java.lang.String name, int status,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .fetchByG_LikeN_S_Last(groupId, name, status,
 			orderByComparator);
@@ -2380,13 +2112,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] findByG_LikeN_S_PrevAndNext(
 		long songId, long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .findByG_LikeN_S_PrevAndNext(songId, groupId, name, status,
 			orderByComparator);
@@ -2399,11 +2129,9 @@ public class SongUtil {
 	* @param name the name
 	* @param status the status
 	* @return the matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_LikeN_S(
-		long groupId, java.lang.String name, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, java.lang.String name, int status) {
 		return getPersistence().filterFindByG_LikeN_S(groupId, name, status);
 	}
 
@@ -2420,11 +2148,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_LikeN_S(
-		long groupId, java.lang.String name, int status, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long groupId, java.lang.String name, int status, int start, int end) {
 		return getPersistence()
 				   .filterFindByG_LikeN_S(groupId, name, status, start, end);
 	}
@@ -2443,12 +2169,10 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> filterFindByG_LikeN_S(
 		long groupId, java.lang.String name, int status, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence()
 				   .filterFindByG_LikeN_S(groupId, name, status, start, end,
 			orderByComparator);
@@ -2464,13 +2188,11 @@ public class SongUtil {
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song[] filterFindByG_LikeN_S_PrevAndNext(
 		long songId, long groupId, java.lang.String name, int status,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence()
 				   .filterFindByG_LikeN_S_PrevAndNext(songId, groupId, name,
 			status, orderByComparator);
@@ -2482,10 +2204,9 @@ public class SongUtil {
 	* @param groupId the group ID
 	* @param name the name
 	* @param status the status
-	* @throws SystemException if a system exception occurred
 	*/
 	public static void removeByG_LikeN_S(long groupId, java.lang.String name,
-		int status) throws com.liferay.portal.kernel.exception.SystemException {
+		int status) {
 		getPersistence().removeByG_LikeN_S(groupId, name, status);
 	}
 
@@ -2496,10 +2217,9 @@ public class SongUtil {
 	* @param name the name
 	* @param status the status
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static int countByG_LikeN_S(long groupId, java.lang.String name,
-		int status) throws com.liferay.portal.kernel.exception.SystemException {
+		int status) {
 		return getPersistence().countByG_LikeN_S(groupId, name, status);
 	}
 
@@ -2510,11 +2230,9 @@ public class SongUtil {
 	* @param name the name
 	* @param status the status
 	* @return the number of matching songs that the user has permission to view
-	* @throws SystemException if a system exception occurred
 	*/
 	public static int filterCountByG_LikeN_S(long groupId,
-		java.lang.String name, int status)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String name, int status) {
 		return getPersistence().filterCountByG_LikeN_S(groupId, name, status);
 	}
 
@@ -2527,12 +2245,10 @@ public class SongUtil {
 	* @param name the name
 	* @return the matching song
 	* @throws org.liferay.jukebox.NoSuchSongException if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByG_A_A_N(long groupId,
 		long artistId, long albumId, java.lang.String name)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByG_A_A_N(groupId, artistId, albumId, name);
 	}
 
@@ -2544,11 +2260,9 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param name the name
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_A_A_N(long groupId,
-		long artistId, long albumId, java.lang.String name)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		long artistId, long albumId, java.lang.String name) {
 		return getPersistence().fetchByG_A_A_N(groupId, artistId, albumId, name);
 	}
 
@@ -2561,12 +2275,10 @@ public class SongUtil {
 	* @param name the name
 	* @param retrieveFromCache whether to use the finder cache
 	* @return the matching song, or <code>null</code> if a matching song could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song fetchByG_A_A_N(long groupId,
 		long artistId, long albumId, java.lang.String name,
-		boolean retrieveFromCache)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		boolean retrieveFromCache) {
 		return getPersistence()
 				   .fetchByG_A_A_N(groupId, artistId, albumId, name,
 			retrieveFromCache);
@@ -2580,12 +2292,10 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param name the name
 	* @return the song that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song removeByG_A_A_N(long groupId,
 		long artistId, long albumId, java.lang.String name)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().removeByG_A_A_N(groupId, artistId, albumId, name);
 	}
 
@@ -2597,11 +2307,9 @@ public class SongUtil {
 	* @param albumId the album ID
 	* @param name the name
 	* @return the number of matching songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static int countByG_A_A_N(long groupId, long artistId, long albumId,
-		java.lang.String name)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String name) {
 		return getPersistence().countByG_A_A_N(groupId, artistId, albumId, name);
 	}
 
@@ -2640,17 +2348,14 @@ public class SongUtil {
 	* @param songId the primary key of the song
 	* @return the song that was removed
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song remove(long songId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().remove(songId);
 	}
 
 	public static org.liferay.jukebox.model.Song updateImpl(
-		org.liferay.jukebox.model.Song song)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Song song) {
 		return getPersistence().updateImpl(song);
 	}
 
@@ -2660,11 +2365,9 @@ public class SongUtil {
 	* @param songId the primary key of the song
 	* @return the song
 	* @throws org.liferay.jukebox.NoSuchSongException if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Song findByPrimaryKey(long songId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			org.liferay.jukebox.NoSuchSongException {
+		throws org.liferay.jukebox.NoSuchSongException {
 		return getPersistence().findByPrimaryKey(songId);
 	}
 
@@ -2673,21 +2376,22 @@ public class SongUtil {
 	*
 	* @param songId the primary key of the song
 	* @return the song, or <code>null</code> if a song with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
-	public static org.liferay.jukebox.model.Song fetchByPrimaryKey(long songId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static org.liferay.jukebox.model.Song fetchByPrimaryKey(long songId) {
 		return getPersistence().fetchByPrimaryKey(songId);
+	}
+
+	public static java.util.Map<java.io.Serializable, org.liferay.jukebox.model.Song> fetchByPrimaryKeys(
+		java.util.Set<java.io.Serializable> primaryKeys) {
+		return getPersistence().fetchByPrimaryKeys(primaryKeys);
 	}
 
 	/**
 	* Returns all the songs.
 	*
 	* @return the songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<org.liferay.jukebox.model.Song> findAll()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static java.util.List<org.liferay.jukebox.model.Song> findAll() {
 		return getPersistence().findAll();
 	}
 
@@ -2701,11 +2405,9 @@ public class SongUtil {
 	* @param start the lower bound of the range of songs
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @return the range of songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findAll(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		int start, int end) {
 		return getPersistence().findAll(start, end);
 	}
 
@@ -2720,22 +2422,17 @@ public class SongUtil {
 	* @param end the upper bound of the range of songs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of songs
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Song> findAll(
 		int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getPersistence().findAll(start, end, orderByComparator);
 	}
 
 	/**
 	* Removes all the songs from the database.
-	*
-	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeAll()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static void removeAll() {
 		getPersistence().removeAll();
 	}
 
@@ -2743,10 +2440,8 @@ public class SongUtil {
 	* Returns the number of songs.
 	*
 	* @return the number of songs
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int countAll()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int countAll() {
 		return getPersistence().countAll();
 	}
 

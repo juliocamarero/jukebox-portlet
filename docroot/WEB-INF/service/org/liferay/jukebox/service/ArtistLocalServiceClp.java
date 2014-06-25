@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -102,88 +102,94 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 				"com.liferay.portal.kernel.lar.PortletDataContext"
 			};
 
-		_methodName16 = "getPersistedModel";
+		_methodName16 = "deletePersistedModel";
 
-		_methodParameterTypes16 = new String[] { "java.io.Serializable" };
+		_methodParameterTypes16 = new String[] {
+				"com.liferay.portal.model.PersistedModel"
+			};
 
-		_methodName17 = "getArtistByUuidAndCompanyId";
+		_methodName17 = "getPersistedModel";
 
-		_methodParameterTypes17 = new String[] { "java.lang.String", "long" };
+		_methodParameterTypes17 = new String[] { "java.io.Serializable" };
 
-		_methodName18 = "getArtistByUuidAndGroupId";
+		_methodName18 = "getArtistByUuidAndCompanyId";
 
 		_methodParameterTypes18 = new String[] { "java.lang.String", "long" };
 
-		_methodName19 = "getArtists";
+		_methodName19 = "getArtistByUuidAndGroupId";
 
-		_methodParameterTypes19 = new String[] { "int", "int" };
+		_methodParameterTypes19 = new String[] { "java.lang.String", "long" };
 
-		_methodName20 = "getArtistsCount";
+		_methodName20 = "getArtists";
 
-		_methodParameterTypes20 = new String[] {  };
+		_methodParameterTypes20 = new String[] { "int", "int" };
 
-		_methodName21 = "updateArtist";
+		_methodName21 = "getArtistsCount";
 
-		_methodParameterTypes21 = new String[] {
+		_methodParameterTypes21 = new String[] {  };
+
+		_methodName22 = "updateArtist";
+
+		_methodParameterTypes22 = new String[] {
 				"org.liferay.jukebox.model.Artist"
 			};
 
-		_methodName22 = "getBeanIdentifier";
+		_methodName23 = "getBeanIdentifier";
 
-		_methodParameterTypes22 = new String[] {  };
+		_methodParameterTypes23 = new String[] {  };
 
-		_methodName23 = "setBeanIdentifier";
+		_methodName24 = "setBeanIdentifier";
 
-		_methodParameterTypes23 = new String[] { "java.lang.String" };
+		_methodParameterTypes24 = new String[] { "java.lang.String" };
 
-		_methodName25 = "addArtist";
+		_methodName26 = "addArtist";
 
-		_methodParameterTypes25 = new String[] {
+		_methodParameterTypes26 = new String[] {
 				"long", "java.lang.String", "java.lang.String",
 				"java.io.InputStream",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName26 = "addEntryResources";
-
-		_methodParameterTypes26 = new String[] {
-				"org.liferay.jukebox.model.Artist", "boolean", "boolean"
-			};
-
 		_methodName27 = "addEntryResources";
 
 		_methodParameterTypes27 = new String[] {
+				"org.liferay.jukebox.model.Artist", "boolean", "boolean"
+			};
+
+		_methodName28 = "addEntryResources";
+
+		_methodParameterTypes28 = new String[] {
 				"org.liferay.jukebox.model.Artist", "java.lang.String[][]",
 				"java.lang.String[][]"
 			};
 
-		_methodName28 = "deleteArtists";
-
-		_methodParameterTypes28 = new String[] { "long" };
-
-		_methodName29 = "getArtists";
+		_methodName29 = "deleteArtists";
 
 		_methodParameterTypes29 = new String[] { "long" };
 
 		_methodName30 = "getArtists";
 
-		_methodParameterTypes30 = new String[] { "long", "int", "int" };
+		_methodParameterTypes30 = new String[] { "long" };
 
-		_methodName31 = "getArtistsCount";
+		_methodName31 = "getArtists";
 
-		_methodParameterTypes31 = new String[] { "long" };
+		_methodParameterTypes31 = new String[] { "long", "int", "int" };
 
-		_methodName32 = "updateArtist";
+		_methodName32 = "getArtistsCount";
 
-		_methodParameterTypes32 = new String[] {
+		_methodParameterTypes32 = new String[] { "long" };
+
+		_methodName33 = "updateArtist";
+
+		_methodParameterTypes33 = new String[] {
 				"long", "long", "java.lang.String", "java.lang.String",
 				"java.io.InputStream",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName33 = "updateAsset";
+		_methodName34 = "updateAsset";
 
-		_methodParameterTypes33 = new String[] {
+		_methodParameterTypes34 = new String[] {
 				"long", "org.liferay.jukebox.model.Artist", "long[][]",
 				"java.lang.String[][]", "long[][]"
 			};
@@ -191,8 +197,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public org.liferay.jukebox.model.Artist addArtist(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Artist artist) {
 		Object returnObj = null;
 
 		try {
@@ -202,10 +207,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -277,8 +278,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public org.liferay.jukebox.model.Artist deleteArtist(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Artist artist) {
 		Object returnObj = null;
 
 		try {
@@ -288,10 +288,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -331,8 +327,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		Object returnObj = null;
 
 		try {
@@ -342,10 +337,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -363,7 +354,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	@SuppressWarnings("rawtypes")
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		int end) {
 		Object returnObj = null;
 
 		try {
@@ -379,10 +370,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -401,8 +388,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		Object returnObj = null;
 
 		try {
@@ -421,10 +407,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
 
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
 			}
@@ -439,8 +421,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		Object returnObj = null;
 
 		try {
@@ -450,10 +431,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -470,8 +447,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	@Override
 	public long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.Projection projection) {
 		Object returnObj = null;
 
 		try {
@@ -486,10 +462,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
 
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
 			}
@@ -503,8 +475,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	}
 
 	@Override
-	public org.liferay.jukebox.model.Artist fetchArtist(long artistId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public org.liferay.jukebox.model.Artist fetchArtist(long artistId) {
 		Object returnObj = null;
 
 		try {
@@ -513,10 +484,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -532,8 +499,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public org.liferay.jukebox.model.Artist fetchArtistByUuidAndCompanyId(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long companyId) {
 		Object returnObj = null;
 
 		try {
@@ -543,10 +509,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -562,8 +524,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public org.liferay.jukebox.model.Artist fetchArtistByUuidAndGroupId(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long groupId) {
 		Object returnObj = null;
 
 		try {
@@ -573,10 +534,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -592,8 +549,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public org.liferay.jukebox.model.Artist getArtist(long artistId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		Object returnObj = null;
 
 		try {
@@ -605,10 +561,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
 				throw (com.liferay.portal.kernel.exception.PortalException)t;
-			}
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
 			}
 
 			if (t instanceof RuntimeException) {
@@ -624,8 +576,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	}
 
 	@Override
-	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		Object returnObj = null;
 
 		try {
@@ -634,10 +585,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -653,8 +600,7 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext) {
 		Object returnObj = null;
 
 		try {
@@ -666,10 +612,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -684,16 +626,15 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	}
 
 	@Override
-	public com.liferay.portal.model.PersistedModel getPersistedModel(
-		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+	public com.liferay.portal.model.PersistedModel deletePersistedModel(
+		com.liferay.portal.model.PersistedModel persistedModel)
+		throws com.liferay.portal.kernel.exception.PortalException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName16,
 					_methodParameterTypes16,
-					new Object[] { ClpSerializer.translateInput(primaryKeyObj) });
+					new Object[] { ClpSerializer.translateInput(persistedModel) });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -702,8 +643,34 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 				throw (com.liferay.portal.kernel.exception.PortalException)t;
 			}
 
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (com.liferay.portal.model.PersistedModel)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
+	public com.liferay.portal.model.PersistedModel getPersistedModel(
+		java.io.Serializable primaryKeyObj)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName17,
+					_methodParameterTypes17,
+					new Object[] { ClpSerializer.translateInput(primaryKeyObj) });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
 			}
 
 			if (t instanceof RuntimeException) {
@@ -721,13 +688,12 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	@Override
 	public org.liferay.jukebox.model.Artist getArtistByUuidAndCompanyId(
 		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName17,
-					_methodParameterTypes17,
+			returnObj = _invokableLocalService.invokeMethod(_methodName18,
+					_methodParameterTypes18,
 					new Object[] { ClpSerializer.translateInput(uuid), companyId });
 		}
 		catch (Throwable t) {
@@ -735,10 +701,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
 				throw (com.liferay.portal.kernel.exception.PortalException)t;
-			}
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
 			}
 
 			if (t instanceof RuntimeException) {
@@ -756,13 +718,12 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	@Override
 	public org.liferay.jukebox.model.Artist getArtistByUuidAndGroupId(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName18,
-					_methodParameterTypes18,
+			returnObj = _invokableLocalService.invokeMethod(_methodName19,
+					_methodParameterTypes19,
 					new Object[] { ClpSerializer.translateInput(uuid), groupId });
 		}
 		catch (Throwable t) {
@@ -770,10 +731,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
 				throw (com.liferay.portal.kernel.exception.PortalException)t;
-			}
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
 			}
 
 			if (t instanceof RuntimeException) {
@@ -790,20 +747,15 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public java.util.List<org.liferay.jukebox.model.Artist> getArtists(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		int start, int end) {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName19,
-					_methodParameterTypes19, new Object[] { start, end });
+			returnObj = _invokableLocalService.invokeMethod(_methodName20,
+					_methodParameterTypes20, new Object[] { start, end });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -818,20 +770,15 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	}
 
 	@Override
-	public int getArtistsCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public int getArtistsCount() {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName20,
-					_methodParameterTypes20, new Object[] {  });
+			returnObj = _invokableLocalService.invokeMethod(_methodName21,
+					_methodParameterTypes21, new Object[] {  });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -847,21 +794,16 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 
 	@Override
 	public org.liferay.jukebox.model.Artist updateArtist(
-		org.liferay.jukebox.model.Artist artist)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Artist artist) {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName21,
-					_methodParameterTypes21,
+			returnObj = _invokableLocalService.invokeMethod(_methodName22,
+					_methodParameterTypes22,
 					new Object[] { ClpSerializer.translateInput(artist) });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
 
 			if (t instanceof RuntimeException) {
 				throw (RuntimeException)t;
@@ -880,8 +822,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName22,
-					_methodParameterTypes22, new Object[] {  });
+			returnObj = _invokableLocalService.invokeMethod(_methodName23,
+					_methodParameterTypes23, new Object[] {  });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -901,8 +843,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	@Override
 	public void setBeanIdentifier(java.lang.String beanIdentifier) {
 		try {
-			_invokableLocalService.invokeMethod(_methodName23,
-				_methodParameterTypes23,
+			_invokableLocalService.invokeMethod(_methodName24,
+				_methodParameterTypes24,
 				new Object[] { ClpSerializer.translateInput(beanIdentifier) });
 		}
 		catch (Throwable t) {
@@ -935,8 +877,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName25,
-					_methodParameterTypes25,
+			returnObj = _invokableLocalService.invokeMethod(_methodName26,
+					_methodParameterTypes26,
 					new Object[] {
 						userId,
 						
@@ -978,8 +920,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		try {
-			_invokableLocalService.invokeMethod(_methodName26,
-				_methodParameterTypes26,
+			_invokableLocalService.invokeMethod(_methodName27,
+				_methodParameterTypes27,
 				new Object[] {
 					ClpSerializer.translateInput(artist),
 					
@@ -1015,8 +957,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		try {
-			_invokableLocalService.invokeMethod(_methodName27,
-				_methodParameterTypes27,
+			_invokableLocalService.invokeMethod(_methodName28,
+				_methodParameterTypes28,
 				new Object[] {
 					ClpSerializer.translateInput(artist),
 					
@@ -1051,8 +993,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		try {
-			_invokableLocalService.invokeMethod(_methodName28,
-				_methodParameterTypes28, new Object[] { groupId });
+			_invokableLocalService.invokeMethod(_methodName29,
+				_methodParameterTypes29, new Object[] { groupId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1082,8 +1024,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName29,
-					_methodParameterTypes29, new Object[] { groupId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName30,
+					_methodParameterTypes30, new Object[] { groupId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1111,8 +1053,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName30,
-					_methodParameterTypes30,
+			returnObj = _invokableLocalService.invokeMethod(_methodName31,
+					_methodParameterTypes31,
 					new Object[] { groupId, start, end });
 		}
 		catch (Throwable t) {
@@ -1140,8 +1082,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName31,
-					_methodParameterTypes31, new Object[] { groupId });
+			returnObj = _invokableLocalService.invokeMethod(_methodName32,
+					_methodParameterTypes32, new Object[] { groupId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -1172,8 +1114,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName32,
-					_methodParameterTypes32,
+			returnObj = _invokableLocalService.invokeMethod(_methodName33,
+					_methodParameterTypes33,
 					new Object[] {
 						userId,
 						
@@ -1218,8 +1160,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		try {
-			_invokableLocalService.invokeMethod(_methodName33,
-				_methodParameterTypes33,
+			_invokableLocalService.invokeMethod(_methodName34,
+				_methodParameterTypes34,
 				new Object[] {
 					userId,
 					
@@ -1302,8 +1244,8 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	private String[] _methodParameterTypes22;
 	private String _methodName23;
 	private String[] _methodParameterTypes23;
-	private String _methodName25;
-	private String[] _methodParameterTypes25;
+	private String _methodName24;
+	private String[] _methodParameterTypes24;
 	private String _methodName26;
 	private String[] _methodParameterTypes26;
 	private String _methodName27;
@@ -1320,4 +1262,6 @@ public class ArtistLocalServiceClp implements ArtistLocalService {
 	private String[] _methodParameterTypes32;
 	private String _methodName33;
 	private String[] _methodParameterTypes33;
+	private String _methodName34;
+	private String[] _methodParameterTypes34;
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -44,11 +44,9 @@ public class AlbumLocalServiceUtil {
 	*
 	* @param album the album
 	* @return the album that was added
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album addAlbum(
-		org.liferay.jukebox.model.Album album)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Album album) {
 		return getService().addAlbum(album);
 	}
 
@@ -68,7 +66,7 @@ public class AlbumLocalServiceUtil {
 	* @param albumId the primary key of the album
 	* @return the album that was removed
 	* @throws PortalException if a album with the primary key could not be found
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
 	*/
 	public static org.liferay.jukebox.model.Album deleteAlbum(long albumId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -81,11 +79,9 @@ public class AlbumLocalServiceUtil {
 	*
 	* @param album the album
 	* @return the album that was removed
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album deleteAlbum(
-		org.liferay.jukebox.model.Album album)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Album album) {
 		return getService().deleteAlbum(album);
 	}
 
@@ -98,12 +94,10 @@ public class AlbumLocalServiceUtil {
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public static java.util.List dynamicQuery(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		return getService().dynamicQuery(dynamicQuery);
 	}
 
@@ -118,12 +112,11 @@ public class AlbumLocalServiceUtil {
 	* @param start the lower bound of the range of model instances
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @return the range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public static java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
-		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		int end) {
 		return getService().dynamicQuery(dynamicQuery, start, end);
 	}
 
@@ -139,14 +132,12 @@ public class AlbumLocalServiceUtil {
 	* @param end the upper bound of the range of model instances (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching rows
-	* @throws SystemException if a system exception occurred
 	*/
 	@SuppressWarnings("rawtypes")
 	public static java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator) {
 		return getService()
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
@@ -156,11 +147,9 @@ public class AlbumLocalServiceUtil {
 	*
 	* @param dynamicQuery the dynamic query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	public static long dynamicQueryCount(
-		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
 		return getService().dynamicQueryCount(dynamicQuery);
 	}
 
@@ -170,17 +159,14 @@ public class AlbumLocalServiceUtil {
 	* @param dynamicQuery the dynamic query
 	* @param projection the projection to apply to the query
 	* @return the number of rows that match the dynamic query
-	* @throws SystemException if a system exception occurred
 	*/
 	public static long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
-		com.liferay.portal.kernel.dao.orm.Projection projection)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.dao.orm.Projection projection) {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static org.liferay.jukebox.model.Album fetchAlbum(long albumId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static org.liferay.jukebox.model.Album fetchAlbum(long albumId) {
 		return getService().fetchAlbum(albumId);
 	}
 
@@ -190,11 +176,9 @@ public class AlbumLocalServiceUtil {
 	* @param uuid the album's UUID
 	* @param companyId the primary key of the company
 	* @return the matching album, or <code>null</code> if a matching album could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album fetchAlbumByUuidAndCompanyId(
-		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long companyId) {
 		return getService().fetchAlbumByUuidAndCompanyId(uuid, companyId);
 	}
 
@@ -204,11 +188,9 @@ public class AlbumLocalServiceUtil {
 	* @param uuid the album's UUID
 	* @param groupId the primary key of the group
 	* @return the matching album, or <code>null</code> if a matching album could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album fetchAlbumByUuidAndGroupId(
-		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		java.lang.String uuid, long groupId) {
 		return getService().fetchAlbumByUuidAndGroupId(uuid, groupId);
 	}
 
@@ -218,29 +200,33 @@ public class AlbumLocalServiceUtil {
 	* @param albumId the primary key of the album
 	* @return the album
 	* @throws PortalException if a album with the primary key could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album getAlbum(long albumId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getAlbum(albumId);
 	}
 
-	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return getService().getActionableDynamicQuery();
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery getExportActionableDynamicQuery(
-		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		com.liferay.portal.kernel.lar.PortletDataContext portletDataContext) {
 		return getService().getExportActionableDynamicQuery(portletDataContext);
+	}
+
+	/**
+	* @throws PortalException
+	*/
+	public static com.liferay.portal.model.PersistedModel deletePersistedModel(
+		com.liferay.portal.model.PersistedModel persistedModel)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService().deletePersistedModel(persistedModel);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(
 		java.io.Serializable primaryKeyObj)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
@@ -251,12 +237,10 @@ public class AlbumLocalServiceUtil {
 	* @param companyId the primary key of the company
 	* @return the matching album
 	* @throws PortalException if a matching album could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album getAlbumByUuidAndCompanyId(
 		java.lang.String uuid, long companyId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getAlbumByUuidAndCompanyId(uuid, companyId);
 	}
 
@@ -267,12 +251,10 @@ public class AlbumLocalServiceUtil {
 	* @param groupId the primary key of the group
 	* @return the matching album
 	* @throws PortalException if a matching album could not be found
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album getAlbumByUuidAndGroupId(
 		java.lang.String uuid, long groupId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getAlbumByUuidAndGroupId(uuid, groupId);
 	}
 
@@ -286,11 +268,9 @@ public class AlbumLocalServiceUtil {
 	* @param start the lower bound of the range of albums
 	* @param end the upper bound of the range of albums (not inclusive)
 	* @return the range of albums
-	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<org.liferay.jukebox.model.Album> getAlbums(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		int start, int end) {
 		return getService().getAlbums(start, end);
 	}
 
@@ -298,10 +278,8 @@ public class AlbumLocalServiceUtil {
 	* Returns the number of albums.
 	*
 	* @return the number of albums
-	* @throws SystemException if a system exception occurred
 	*/
-	public static int getAlbumsCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public static int getAlbumsCount() {
 		return getService().getAlbumsCount();
 	}
 
@@ -310,11 +288,9 @@ public class AlbumLocalServiceUtil {
 	*
 	* @param album the album
 	* @return the album that was updated
-	* @throws SystemException if a system exception occurred
 	*/
 	public static org.liferay.jukebox.model.Album updateAlbum(
-		org.liferay.jukebox.model.Album album)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		org.liferay.jukebox.model.Album album) {
 		return getService().updateAlbum(album);
 	}
 
