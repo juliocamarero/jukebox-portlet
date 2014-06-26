@@ -59,19 +59,6 @@ else {
 	<c:otherwise>
 		<ul class="list-unstyled albums-list">
 
-			<portlet:renderURL var="redirectURL">
-				<c:choose>
-					<c:when test="<%= artistId > 0 %>">
-						<portlet:param name="jspPage" value="/html/artists/view_artist.jsp" />
-						<portlet:param name="artistId" value="<%= String.valueOf(artistId) %>" />
-						<portlet:param name="redirect" value="<%= redirect %>" />
-					</c:when>
-					<c:otherwise>
-						<portlet:param name="jspPage" value="/html/albums/view.jsp" />
-					</c:otherwise>
-				</c:choose>
-			</portlet:renderURL>
-
 			<%
 			for (Album album : albums) {
 			%>
@@ -85,7 +72,7 @@ else {
 				<portlet:renderURL var="viewAlbumURL">
 					<portlet:param name="jspPage" value="/html/albums/view_album.jsp" />
 					<portlet:param name="albumId" value="<%= String.valueOf(album.getAlbumId()) %>" />
-					<portlet:param name="redirect" value="<%= redirectURL %>" />
+					<portlet:param name="redirect" value="<%= currentURL %>" />
 				</portlet:renderURL>
 
 				<aui:a href="<%= viewAlbumURL %>">
@@ -98,7 +85,7 @@ else {
 					<portlet:renderURL var="editAlbumURL">
 						<portlet:param name="jspPage" value="/html/albums/edit_album.jsp" />
 						<portlet:param name="albumId" value="<%= String.valueOf(album.getAlbumId()) %>" />
-						<portlet:param name="redirect" value="<%= redirectURL %>" />
+						<portlet:param name="redirect" value="<%= currentURL %>" />
 					</portlet:renderURL>
 
 					<liferay-ui:icon cssClass="album-small-link" image="../aui/pencil" message="edit" url="<%= editAlbumURL %>" />

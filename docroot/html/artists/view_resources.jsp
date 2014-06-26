@@ -50,15 +50,11 @@ else {
 			for (Artist artist : artists) {
 			%>
 
-				<portlet:renderURL var="redirectURL">
-					<portlet:param name="jspPage" value="/html/artists/view.jsp" />
-				</portlet:renderURL>
-
 				<li class="artist">
 					<portlet:renderURL var="viewArtistURL">
 						<portlet:param name="jspPage" value="/html/artists/view_artist.jsp" />
 						<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
-						<portlet:param name="redirect" value="<%= redirectURL %>" />
+						<portlet:param name="redirect" value="<%= currentURL %>" />
 					</portlet:renderURL>
 
 					<aui:a href="<%= viewArtistURL %>">
@@ -71,7 +67,7 @@ else {
 						<portlet:renderURL var="editArtistURL">
 							<portlet:param name="jspPage" value="/html/artists/edit_artist.jsp" />
 							<portlet:param name="artistId" value="<%= String.valueOf(artist.getArtistId()) %>" />
-							<portlet:param name="redirect" value="<%= redirectURL %>" />
+							<portlet:param name="redirect" value="<%= currentURL %>" />
 						</portlet:renderURL>
 
 						<liferay-ui:icon cssClass="artist-small-link" image="../aui/pencil" message="edit" url="<%= editArtistURL %>" />

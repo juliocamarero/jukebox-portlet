@@ -78,19 +78,6 @@ else {
 
 		<ul class="songs-list graphic">
 
-			<portlet:renderURL var="redirectURL">
-				<c:choose>
-					<c:when test="<%= albumId > 0 %>">
-						<portlet:param name="jspPage" value="/html/albums/view_album.jsp" />
-						<portlet:param name="albumId" value="<%= String.valueOf(albumId) %>" />
-						<portlet:param name="redirect" value="<%= redirect %>" />
-					</c:when>
-					<c:otherwise>
-						<portlet:param name="jspPage" value="/html/songs/view.jsp" />
-					</c:otherwise>
-				</c:choose>
-			</portlet:renderURL>
-
 			<%
 			for (Song song : songs) {
 			%>
@@ -118,7 +105,7 @@ else {
 						<portlet:renderURL var="editSongURL">
 							<portlet:param name="jspPage" value="/html/songs/edit_song.jsp" />
 							<portlet:param name="songId" value="<%= String.valueOf(song.getSongId()) %>" />
-							<portlet:param name="redirect" value="<%= redirectURL %>" />
+							<portlet:param name="redirect" value="<%= currentURL %>" />
 						</portlet:renderURL>
 
 						<liferay-ui:icon cssClass="song-small-link" image="../aui/pencil" message="edit" url="<%= editSongURL %>" />
@@ -127,7 +114,7 @@ else {
 					<portlet:renderURL var="viewSongURL">
 						<portlet:param name="jspPage" value="/html/songs/view_song.jsp" />
 						<portlet:param name="songId" value="<%= String.valueOf(song.getSongId()) %>" />
-						<portlet:param name="redirect" value="<%= redirectURL %>" />
+						<portlet:param name="redirect" value="<%= currentURL %>" />
 					</portlet:renderURL>
 
 					<liferay-ui:icon cssClass="song-small-link" image="../aui/info" message="info" url="<%= viewSongURL %>" />

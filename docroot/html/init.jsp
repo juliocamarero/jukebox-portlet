@@ -74,6 +74,7 @@
 <%@ page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %>
 <%@ page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %>
 <%@ page import="com.liferay.portlet.trash.util.TrashUtil" %>
+<%@ page import="com.liferay.portlet.PortletURLUtil" %>
 
 <%@ page import="com.liferay.portal.security.permission.ActionKeys" %>
 <%@ page import="com.liferay.portal.util.PortalUtil" %>
@@ -104,3 +105,9 @@
 <portlet:defineObjects />
 
 <liferay-theme:defineObjects />
+
+<%
+PortletURL currentURLObj = PortletURLUtil.getCurrent(liferayPortletRequest, liferayPortletResponse);
+
+String currentURL = currentURLObj.toString();
+%>

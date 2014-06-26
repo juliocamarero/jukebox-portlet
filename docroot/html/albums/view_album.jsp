@@ -45,18 +45,12 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 </c:if>
 
 <c:if test="<%= AlbumPermission.contains(permissionChecker, album.getAlbumId(), ActionKeys.UPDATE) %>">
-	<portlet:renderURL var="redirectURL">
-		<portlet:param name="jspPage" value="/html/albums/view_album.jsp" />
-		<portlet:param name="albumId" value="<%= String.valueOf(album.getAlbumId()) %>" />
-		<portlet:param name="redirect" value="<%= redirect %>" />
-	</portlet:renderURL>
-
 	<aui:nav-bar>
 		<aui:nav cssClass="navbar-nav">
 			<portlet:renderURL var="editAlbumURL">
 				<portlet:param name="jspPage" value="/html/albums/edit_album.jsp" />
 				<portlet:param name="albumId" value="<%= String.valueOf(album.getAlbumId()) %>" />
-				<portlet:param name="redirect" value="<%= redirectURL %>" />
+				<portlet:param name="redirect" value="<%= currentURL %>" />
 			</portlet:renderURL>
 
 			<aui:nav-item href="<%= editAlbumURL %>" iconCssClass="icon-pencil" label="edit" />
@@ -67,7 +61,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 				<portlet:renderURL var="editArtistURL">
 					<portlet:param name="jspPage" value="/html/songs/edit_song.jsp" />
 					<portlet:param name="albumId" value="<%= String.valueOf(albumId) %>" />
-					<portlet:param name="redirect" value="<%= redirectURL %>" />
+					<portlet:param name="redirect" value="<%= currentURL %>" />
 				</portlet:renderURL>
 
 				<aui:nav-item href="<%= editArtistURL %>" iconCssClass="icon-plus" label="add-song" />
