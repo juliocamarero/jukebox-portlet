@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+	<service-builder package-path="org.liferay.jukebox">
+	<author>Julio Camarero</author>
+	<namespace>jukebox</namespace>
+	<entity local-service="true" name="Album" remote-service="true" trash-enabled="true" uuid="true">
+
+		<!-- Primary key column -->
+
+		<column container-model="true" name="albumId" primary="true" type="long" />
+
+		<!-- Foreign key columns -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<column name="artistId" type="long" />
+
+		<!-- Other columns -->
+
+		<column name="name" type="String" />
+		<column name="year" type="int" />
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Finder Methods Standard -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="ArtistId" return-type="Collection">
+			<finder-column name="artistId" />
+		</finder>
+		<finder name="G_U" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="userId" />
+		</finder>
+		<finder name="G_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="G_A_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="artistId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="G_LikeN_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column case-sensitive="false" comparator="LIKE" name="name" />
+			<finder-column name="status" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="Company" package-path="com.liferay.portal" />
+		<reference entity="Group" package-path="com.liferay.portal" />
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+		<reference entity="ExpandoValue" package-path="com.liferay.portlet.expando" />
+		<reference entity="MBMessage" package-path="com.liferay.portlet.messageboards" />
+		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
+		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
+		<reference entity="TrashVersion" package-path="com.liferay.portlet.trash" />
+	</entity>
+		<entity local-service="true" name="Artist" remote-service="true" trash-enabled="true" uuid="true">
+
+		<!-- Primary key column -->
+
+		<column name="artistId" primary="true" type="long" />
+
+		<!-- Foreign key columns -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Other columns -->
+
+		<column name="name" type="String" />
+		<column name="bio" type="String" />
+
+		<!-- Finder Methods Standard -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="U_G" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="G_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="G_LikeN_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column case-sensitive="false" comparator="LIKE" name="name" />
+			<finder-column name="status" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="Company" package-path="com.liferay.portal" />
+		<reference entity="Group" package-path="com.liferay.portal" />
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+		<reference entity="ExpandoValue" package-path="com.liferay.portlet.expando" />
+		<reference entity="MBMessage" package-path="com.liferay.portlet.messageboards" />
+		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
+	</entity>
+	<entity local-service="true" name="Song" remote-service="true" trash-enabled="true" uuid="true">
+
+		<!-- Primary key column -->
+
+		<column name="songId" primary="true" type="long" />
+
+
+		<!-- Foreign key columns -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<column name="artistId" type="long" />
+		<column name="albumId" type="long" />
+
+		<!-- Other columns -->
+
+		<column name="name" type="String" />
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Finder Methods Standard -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="ArtistId" return-type="Collection">
+			<finder-column name="artistId" />
+		</finder>
+		<finder name="AlbumId" return-type="Collection">
+			<finder-column name="albumId" />
+		</finder>
+		<finder name="G_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="G_A" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="albumId" />
+		</finder>
+		<finder name="G_A_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="albumId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="G_LikeN_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column case-sensitive="false" comparator="LIKE" name="name" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="G_A_A_N" return-type="Song" unique="true">
+			<finder-column name="groupId" />
+			<finder-column name="artistId" />
+			<finder-column name="albumId" />
+			<finder-column name="name" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="Company" package-path="com.liferay.portal" />
+		<reference entity="Group" package-path="com.liferay.portal" />
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+		<reference entity="ExpandoValue" package-path="com.liferay.portlet.expando" />
+		<reference entity="MBMessage" package-path="com.liferay.portlet.messageboards" />
+		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
+		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
+		<reference entity="TrashVersion" package-path="com.liferay.portlet.trash" />
+	</entity>
+	<exceptions>
+		<exception>AlbumName</exception>
+		<exception>ArtistName</exception>
+		<exception>DuplicatedAlbum</exception>
+		<exception>DuplicatedArtist</exception>
+		<exception>DuplicatedSong</exception>
+		<exception>NoSuchAlbum</exception>
+		<exception>NoSuchArtist</exception>
+		<exception>NoSuchSong</exception>
+		<exception>SongName</exception>
+	</exceptions>
+</service-builder>
